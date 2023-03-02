@@ -1,1 +1,251 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>AI Prompts for Teachers</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+
+        body {
+            background: #D9D9D9;
+        }
+
+        h1,
+        form {
+            max-width: 420px;
+            margin: 15px auto;
+        }
+
+        h1 {
+            color: #0D0D0D;
+            font-family: 'Montserrat', Arial, Raleway, sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        label {
+            color: #0D0D0D;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        textarea {
+            color: #0D0D0D;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 5px;
+            line-height: 22px;
+            background-color: transparent;
+            border: 2px solid #078C4E;
+            transition: all 0.3s;
+            padding: 13px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        .prompt-input:focus {
+            border: 2px solid #CC4949;
+        }
+
+        .small-textarea {
+            height: 60px;
+            line-height: 150%;
+            resize: vertical;
+        }
+
+        .large-textarea {
+            height: 150px;
+            line-height: 150%;
+            resize: vertical;
+        }
+
+        .choice-box {
+            border-radius: 5px;
+            background-color: transparent;
+            border: 2px solid #078C4E;
+            transition: all 0.3s;
+            padding: 13px;
+            margin-bottom: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        [type="submit"],
+        .enabled {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            width: 100%;
+            background: #078C4E;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 10px #404040;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .active:active {
+            box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .disabled {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            width: 100%;
+            background: #404040;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 10px #404040;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .hover:hover {
+            background: #0D734D;
+        }
+
+        #aiPrompt {
+            color: #D9D9D9;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            max-width: 420px;
+            margin: 50px auto;
+            background-color: #0D0D0D;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #404040;
+            padding: 50px 13px;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error-msg {
+            color: #CC4949;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="prompt-box">
+        <h1>Writing Prompt Generator</h1>
+        <form id="prompt-form">
+            <label>Grade:</label><br>
+            <textarea class="small-textarea" type="text" id="grade" placeholder="7th"></textarea><br>
+            <label>Subject:</label><br>
+            <textarea class="small-textarea" type="text" id="subject" placeholder="Advanced ELA"></textarea><br>
+            <label>Number of Prompts:</label><br>
+            <textarea class="small-textarea" type="text" id="number" placeholder="3"></textarea><br>
+            <label>Length of Response:</label><br>
+            <textarea class="small-textarea" type="text" id="length" placeholder="5 paragraph essay"></textarea><br>
+            <label>Relevant Topic, Source Material, or Theme:</label><br>
+            <textarea class="small-textarea" type="text" id="topic"
+                placeholder="S. E. Hinton's 'The Outsiders'"></textarea><br>
+            <label>Specific Skills Assessed:</label><br>
+            <textarea class="large-textarea" type="text" id="skills"
+                placeholder="descriptive writing and figurative language"></textarea><br>
+            <p class="hidden error-msg" id="errorMsg">*Please fill out all the fields*</p>
+            <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+            <button type="button" id="copy-prompt-button" class="disabled" disabled>Copy Prompt and Open
+                ChatGPT</button>
+        </form>
+        <div class="container">
+            <p id="aiPrompt"></p>
+        </div>
+
+    </div>
+    <script>
+        const form = document.getElementById("prompt-form");
+        const grade = document.getElementById("grade");
+        const subject = document.getElementById("subject");
+        const number = document.getElementById("number");
+        const responseLength = document.getElementById("length");
+        const topic = document.getElementById("topic");
+        const skills = document.getElementById("skills");
+        const promptDisplay = document.getElementById("aiPrompt");
+        const copyPromptButton = document.getElementById("copy-prompt-button");
+        const errorMsg = document.getElementById("errorMsg");
+
+        function typeWriter(txt) {
+            var i = 0;
+            var speed = 25;
+            function type() {
+                if (i < txt.length) {
+                    document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Check if all required fields are filled out
+            if (grade.value === "" || subject.value === "" || number.value === "" || responseLength.value === "" || topic.value === "" || skills.value === "") {
+                errorMsg.classList.remove("hidden");
+                return;
+            }
+
+            // Generate the prompt
+            const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
+
+            // Enable the copy prompt button
+            copyPromptButton.disabled = false;
+            copyPromptButton.classList.remove("disabled");
+            copyPromptButton.classList.add("enabled");
+            copyPromptButton.classList.add("hover");
+            copyPromptButton.classList.add("active");
+            errorMsg.classList.add("hidden")
+
+            // Display the prompt with the typewriter animation
+            typeWriter(prompt);
+        }
+
+        function copyPrompt() {
+            // Get the text field
+            var copyText = document.getElementById("aiPrompt");
+
+            // Select the text field
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            // Copy the selected text
+            document.execCommand("copy");
+
+            // Alert the copied text
+            alert("Copied the prompt");
+
+            // Open a link to chat.openai.com
+            window.open("http://chat.openai.com", "_blank");
+        }
+
+        form.addEventListener("submit", handleSubmit);
+        copyPromptButton.addEventListener("click", copyPrompt);
+    </script>
+</body>
+
+</html>
