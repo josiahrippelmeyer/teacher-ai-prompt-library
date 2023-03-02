@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Prompts for Teachers</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+
+        body {
+            background: #D9D9D9;
+        }
+
+        h1,
+        form {
+            max-width: 420px;
+            margin: 15px auto;
+        }
+
+        h1 {
+            color: #0D0D0D;
+            font-family: 'Montserrat', Arial, Raleway, sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        label {
+            color: #0D0D0D;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        textarea {
+            color: #0D0D0D;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 5px;
+            line-height: 22px;
+            background-color: transparent;
+            border: 2px solid #078C4E;
+            transition: all 0.3s;
+            padding: 13px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: 0;
+        }
+
+        .prompt-input:focus {
+            border: 2px solid #CC4949;
+        }
+
+        .small-textarea {
+            height: 60px;
+            line-height: 150%;
+            resize: vertical;
+        }
+
+        .large-textarea {
+            height: 150px;
+            line-height: 150%;
+            resize: vertical;
+        }
+
+        [type="submit"],
+        .enabled {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            width: 100%;
+            background: #078C4E;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 10px #404040;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .disabled {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            width: 100%;
+            background: #404040;
+            border-radius: 5px;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 10px #404040;
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .hover:hover {
+            background: #0D734D;
+        }
+
+        .active:active {
+            box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #aiPrompt {
+            color: #D9D9D9;
+            font-family: Raleway, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            max-width: 420px;
+            margin: 50px auto;
+            background-color: #0D0D0D;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #404040;
+            padding: 50px 13px;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="prompt-box">
+        <h1 class="typed-out">Presentation Outline Generator</h1>
+        <form id="prompt-form">
+            <label>Presentation Topic: <br><textarea class="small-textarea" type="text" id="topic"
+                    placeholder="project-based learning"></textarea></label><br>
+            <label>Audience: <br><textarea class="small-textarea" type="text" id="audience"
+                    placeholder="gifted and talented facilitators"></textarea></label><br>
+            <label>Objective of Presentation: <br><textarea class="large-input large-textarea" id="objective" cols="50"
+                    placeholder="to equip facilitators to create effective project-based learning activities"></textarea></label><br>
+            <label>Secondary Objectives: <br><textarea class="large-input large-textarea" id="secondary-objectives"
+                    cols="50"
+                    placeholder="to provide examples of project-based learning activities for various subjects and to discuss common obstacles to project-based learning"></textarea></label><br>
+            <label>Approximate Length (minutes): <br><textarea class="small-textarea" type="text" id="length"
+                    placeholder="30"></textarea></label><br>
+            <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+            <button type="button" id="copy-prompt-button" class="disabled" disabled>Copy Prompt and Open
+                ChatGPT</button>
+        </form>
+        <div class="container">
+            <p id="aiPrompt"></p>
+        </div>
+
+    </div>
+    <script>
+        const form = document.getElementById("prompt-form");
+        const topic = document.getElementById("topic");
+        const audience = document.getElementById("audience");
+        const objective = document.getElementById("objective");
+        const secondaryObjectives = document.getElementById("secondary-objectives");
+        const length = document.getElementById("length");
+        const promptDisplay = document.getElementById("aiPrompt");
+        const copyPromptButton = document.getElementById("copy-prompt-button");
+
+        function typeWriter(txt) {
+            var i = 0;
+            var speed = 25;
+            function type() {
+                if (i < txt.length) {
+                    document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        function generatePrompt() {
+            const prompt = `I am making a presentation on ${topic.value} to an audience of ${audience.value}. The primary objective will be ${objective.value}. I would also like to make sure ${secondaryObjectives.value} are communicated as well. Make a slide outline that can be presented within a time limit of ${length.value} minutes. Also, list out three potential, creative titles for the presentation.`;
+            copyPromptButton.disabled = false;
+            copyPromptButton.classList.remove("disabled");
+            copyPromptButton.classList.add("enabled");
+            copyPromptButton.classList.add("hover");
+            copyPromptButton.classList.add("active");
+            typeWriter(prompt);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            if (length.value === "" || topic.value === "" || audience.value === "" || objective.value === "" || secondaryObjectives.value === "") {
+                alert("Please fill out all the fields.");
+                return;
+            }
+            generatePrompt();
+        }
+
+        function copyPrompt() {
+            // Get the text field
+            var copyText = document.getElementById("aiPrompt");
+
+            // Select the text field
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            // Copy the selected text
+            document.execCommand("copy");
+
+            // Alert the copied text
+            alert("Copied the prompt");
+
+            // Open a link to chat.openai.com
+            window.open("http://chat.openai.com", "_blank");
+        }
+
+        form.addEventListener("submit", handleSubmit);
+        copyPromptButton.addEventListener("click", copyPrompt);
+    </script>
+</body>
+
+</html>
