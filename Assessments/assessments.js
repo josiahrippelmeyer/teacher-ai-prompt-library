@@ -1,16 +1,13 @@
-//pulling form values for prompt generation
+// Pull inputs from the form for prompt generation
 const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
-const number = document.getElementById("number");
-const responseLength = document.getElementById("length");
 const topic = document.getElementById("topic");
-const skills = document.getElementById("skills");
+const quantity = document.getElementById("quantity");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
-const errorMsg = document.getElementById("errorMsg");
 
-//typwriter animation
+// Typewriter animation set up
 function typeWriter(txt) {
     var i = 0;
     var speed = 25;
@@ -27,16 +24,26 @@ function typeWriter(txt) {
 function handleSubmit(event) {
     event.preventDefault();
 
-    // Check if all required fields are filled out and show error message if not
-    if (grade.value === "" || subject.value === "" || number.value === "" || responseLength.value === "" || topic.value === "" || skills.value === "") {
+    // Get the selected question types from checkboxes
+    const questionTypes = [];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    for (const checkbox of checkboxes) {
+        questionTypes.push(checkbox.value);
+    }
+
+    // Get the selected difficulty from radio
+    const difficulty = document.querySelector('input[type="radio"]:checked').value;
+
+    // Check if all required fields are filled out and reveal error message if not
+    if (grade.value === "" || subject.value === "" || topic.value === "" || questionTypes.length === 0 || difficulty === "" || quantity.value === "") {
         errorMsg.classList.remove("hidden");
         return;
     }
 
     // Generate the prompt
-    const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
+    const prompt = `Make me a ${quantity.value} question assessment for ${grade.value} students in my ${subject.value} class on the topic of ${topic.value}. The assessment should be of ${difficulty} difficulty. Make sure to include a variety of these question types: ${questionTypes.join(", ")}. Please include the answers.`;
 
-    // Enable the copy prompt button and remove error message if necessary
+    // Enable the copy prompt button and hide error message
     copyPromptButton.disabled = false;
     copyPromptButton.classList.remove("disabled");
     copyPromptButton.classList.add("enabled");
@@ -58,11 +65,11 @@ function copyPrompt() {
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
 
-    // Copy & alert the selected text
+    // Copy and alert
     document.execCommand("copy");
     alert("Copied the prompt");
 
-    // Open a link to chat.openai.com
+    // Open a link
     window.open("http://chat.openai.com", "_blank");
 }
 
