@@ -1,14 +1,12 @@
 //pulling form values for prompt generation
 const form = document.getElementById("prompt-form");
-const grade = document.getElementById("grade");
-const subject = document.getElementById("subject");
-const number = document.getElementById("number");
-const responseLength = document.getElementById("length");
 const topic = document.getElementById("topic");
-const skills = document.getElementById("skills");
+const audience = document.getElementById("audience");
+const objective = document.getElementById("objective");
+const secondaryObjectives = document.getElementById("secondary-objectives");
+const length = document.getElementById("length");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
-const errorMsg = document.getElementById("errorMsg");
 
 //typwriter animation setup
 function typeWriter(txt) {
@@ -24,24 +22,8 @@ function typeWriter(txt) {
   type();
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-
-  // Check if all required fields are filled out and show error message if not
-  if (
-    grade.value === "" ||
-    subject.value === "" ||
-    number.value === "" ||
-    responseLength.value === "" ||
-    topic.value === "" ||
-    skills.value === ""
-  ) {
-    errorMsg.classList.remove("hidden");
-    return;
-  }
-
-  // Generate the prompt
-  const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
+function generatePrompt() {
+  const prompt = `I am making a presentation on ${topic.value} to an audience of ${audience.value}. The primary objective will be ${objective.value}. I would also like to make sure ${secondaryObjectives.value} are communicated as well. Make a slide outline that can be presented within a time limit of ${length.value} minutes. Also, list out three potential, creative titles for the presentation.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
@@ -55,6 +37,22 @@ function handleSubmit(event) {
   typeWriter(prompt);
 }
 
+// Check if all required fields are filled out and show error message if not
+function handleSubmit(event) {
+  event.preventDefault();
+  if (
+    length.value === "" ||
+    topic.value === "" ||
+    audience.value === "" ||
+    objective.value === "" ||
+    secondaryObjectives.value === ""
+  ) {
+    errorMsg.classList.remove("hidden");
+    return;
+  }
+  generatePrompt();
+}
+
 function copyPrompt() {
   // Get the text field
   var copyText = document.getElementById("aiPrompt");
@@ -65,7 +63,7 @@ function copyPrompt() {
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(range);
 
-  // Copy & alert the selected text
+  // Copy and alert
   document.execCommand("copy");
   alert("Copied the prompt");
 

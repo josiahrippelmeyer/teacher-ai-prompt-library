@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Prompts for Teachers</title>
+    <link rel="stylesheet" href="slideoutlines.css" />
+  </head>
+  <body>
+    <div class="prompt-box">
+      <h1 class="typed-out">Presentation Outline Generator</h1>
+      <form id="prompt-form">
+        <label
+          >Presentation Topic: <br /><textarea
+            class="small-textarea"
+            type="text"
+            id="topic"
+            placeholder="project-based learning"
+          ></textarea></label
+        ><br />
+        <label
+          >Audience: <br /><textarea
+            class="small-textarea"
+            type="text"
+            id="audience"
+            placeholder="gifted and talented facilitators"
+          ></textarea></label
+        ><br />
+        <label
+          >Objective of Presentation: <br /><textarea
+            class="large-input large-textarea"
+            id="objective"
+            cols="50"
+            placeholder="to equip facilitators to create effective project-based learning activities"
+          ></textarea></label
+        ><br />
+        <label
+          >Secondary Objectives: <br /><textarea
+            class="large-input large-textarea"
+            id="secondary-objectives"
+            cols="50"
+            placeholder="to provide examples of project-based learning activities for various subjects and to discuss common obstacles to project-based learning"
+          ></textarea></label
+        ><br />
+        <label
+          >Approximate Length (minutes): <br /><textarea
+            class="small-textarea"
+            type="text"
+            id="length"
+            placeholder="30"
+          ></textarea></label
+        ><br />
+        <p class="hidden error-msg" id="errorMsg">
+          *Please fill out all the fields*
+        </p>
+        <button class="hover active" type="submit" id="generate-prompt-button">
+          Generate Prompt
+        </button>
+        <button type="button" id="copy-prompt-button" class="disabled" disabled>
+          Copy Prompt and Open ChatGPT
+        </button>
+      </form>
+      <div class="container">
+        <p id="aiPrompt"></p>
+      </div>
+    </div>
+    <script src="slideoutlines.js"></script>
+  </body>
+</html>
