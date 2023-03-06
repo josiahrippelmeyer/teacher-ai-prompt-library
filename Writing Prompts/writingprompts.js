@@ -12,58 +12,65 @@ const errorMsg = document.getElementById("errorMsg");
 
 //typwriter animation
 function typeWriter(txt) {
-    var i = 0;
-    var speed = 25;
-    function type() {
-        if (i < txt.length) {
-            document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+  var i = 0;
+  var speed = 25;
+  function type() {
+    if (i < txt.length) {
+      document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(type, speed);
     }
-    type();
+  }
+  type();
 }
 
 function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    // Check if all required fields are filled out and show error message if not
-    if (grade.value === "" || subject.value === "" || number.value === "" || responseLength.value === "" || topic.value === "" || skills.value === "") {
-        errorMsg.classList.remove("hidden");
-        return;
-    }
+  // Check if all required fields are filled out and show error message if not
+  if (
+    grade.value === "" ||
+    subject.value === "" ||
+    number.value === "" ||
+    responseLength.value === "" ||
+    topic.value === "" ||
+    skills.value === ""
+  ) {
+    errorMsg.classList.remove("hidden");
+    return;
+  }
 
-    // Generate the prompt
-    const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
+  // Generate the prompt
+  const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
 
-    // Enable the copy prompt button and remove error message if necessary
-    copyPromptButton.disabled = false;
-    copyPromptButton.classList.remove("disabled");
-    copyPromptButton.classList.add("enabled");
-    copyPromptButton.classList.add("hover");
-    copyPromptButton.classList.add("active");
-    errorMsg.classList.add("hidden")
+  // Enable the copy prompt button and remove error message if necessary
+  copyPromptButton.disabled = false;
+  copyPromptButton.classList.remove("disabled");
+  copyPromptButton.classList.add("enabled");
+  copyPromptButton.classList.add("hover");
+  copyPromptButton.classList.add("active");
+  errorMsg.classList.add("hidden");
 
-    // Display the prompt with the typewriter animation
-    typeWriter(prompt);
+  // Display the prompt with the typewriter animation
+  typeWriter(prompt);
 }
 
 function copyPrompt() {
-    // Get the text field
-    var copyText = document.getElementById("aiPrompt");
+  // Get the text field
+  var copyText = document.getElementById("aiPrompt");
 
-    // Select the text field
-    var range = document.createRange();
-    range.selectNode(copyText);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
+  // Select the text field
+  var range = document.createRange();
+  range.selectNode(copyText);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
 
-    // Copy & alert the selected text
-    document.execCommand("copy");
-    alert("Copied the prompt");
+  // Copy & alert the selected text
+  document.execCommand("copy");
+  alert("Copied the prompt");
 
-    // Open a link to chat.openai.com
-    window.open("http://chat.openai.com", "_blank");
+  // Open a link to chat.openai.com
+  window.open("http://chat.openai.com", "_blank");
 }
 
 form.addEventListener("submit", handleSubmit);

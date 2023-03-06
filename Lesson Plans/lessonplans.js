@@ -1,13 +1,15 @@
-// Pull inputs from the form for prompt generation
+//pulling form values for prompt generation
 const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
+const standard = document.getElementById("standard");
+const objective = document.getElementById("objective");
 const topic = document.getElementById("topic");
-const quantity = document.getElementById("quantity");
+const time = document.getElementById("time");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-// Typewriter animation set up
+//typwriter animation
 function typeWriter(txt) {
   var i = 0;
   var speed = 25;
@@ -24,43 +26,32 @@ function typeWriter(txt) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Get the selected question types from checkboxes
+  // Get the selected question types
   const questionTypes = [];
-  const checkboxes = document.querySelectorAll(
-    'input[type="checkbox"]:checked'
-  );
-  for (const checkbox of checkboxes) {
-    questionTypes.push(checkbox.value);
-  }
 
-  // Get the selected difficulty from radio
-  const difficulty = document.querySelector(
+  // Get the selected assessment method
+  const assessment = document.querySelector(
     'input[type="radio"]:checked'
   ).value;
 
-  // Check if all required fields are filled out and reveal error message if not
+  // Check if all required fields are filled out
   if (
     grade.value === "" ||
     subject.value === "" ||
+    standard.value === "" ||
+    objective.value === "" ||
     topic.value === "" ||
-    questionTypes.length === 0 ||
-    difficulty === "" ||
-    quantity.value === ""
+    assessment === "" ||
+    time.value === ""
   ) {
     errorMsg.classList.remove("hidden");
     return;
   }
 
   // Generate the prompt
-  const prompt = `Make me a ${quantity.value} question assessment for ${
-    grade.value
-  } students in my ${subject.value} class on the topic of ${
-    topic.value
-  }. The assessment should be of ${difficulty} difficulty. Make sure to include a variety of these question types: ${questionTypes.join(
-    ", "
-  )}. Please include the answers.`;
+  const prompt = `Write me a lesson plan on ${topic.value} for a ${grade.value} grade ${subject.value} class. The essential standard for this unit is "${standard.value}". At the end of the ${time.value} minute lesson, students should be able ${objective.value}. Please include this assessment method: ${assessment}. Additionally, detail possible extension and intervention opportunities.`;
 
-  // Enable the copy prompt button and hide error message
+  // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
   copyPromptButton.classList.remove("disabled");
   copyPromptButton.classList.add("enabled");
@@ -86,7 +77,7 @@ function copyPrompt() {
   document.execCommand("copy");
   alert("Copied the prompt");
 
-  // Open a link
+  // Open a link to chat.openai.com
   window.open("http://chat.openai.com", "_blank");
 }
 

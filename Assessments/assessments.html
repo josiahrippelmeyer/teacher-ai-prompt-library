@@ -1,61 +1,109 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>AI Prompts for Teachers</title>
-    <link rel="stylesheet" href="assessments.css">
-</head>
+    <link rel="stylesheet" href="assessments.css" />
+  </head>
 
-<body>
+  <body>
     <div class="prompt-box">
-        <h1 class="typed-out">Assessment Generator</h1>
-        <form id="prompt-form">
-            <label>Grade: <br>
-                <textarea class="small-textarea" type="text" id="grade" placeholder="7th"></textarea>
-            </label><br>
-            <label>Subject: <br>
-                <textarea class="small-textarea" type="text" id="subject" placeholder="math"></textarea>
-            </label><br>
-            <label>Assessment Topic: <br>
-                <textarea class="small-textarea" type="text" id="topic" placeholder="ratios"></textarea>
-            </label><br>
-            <label>Question Types (Can select multiple):</label><br>
-            <div class="choice-box">
-                <input type="checkbox" id="type1" name="type1" value="multiple choice">
-                <label for="type1">Multiple Choice</label><br>
-                <input type="checkbox" id="type2" name="type2" value="word problem">
-                <label for="type2">Word Problems</label><br>
-                <input type="checkbox" id="type4" name="type4" value="open response">
-                <label for="type4">Open Response</label><br>
-                <input type="checkbox" id="type5" name="type5" value="fill in the blank">
-                <label for="type5">Fill in the Blank</label><br>
-                <input type="checkbox" id="type6" name="type6" value="true or false">
-                <label for="type6">True or False</label><br>
-            </div><br>
-            <label>Question Difficulty: </label><br>
-            <div class="choice-box">
-                <input type="radio" id="easy" name="difficulty" value="easy">
-                <label for="easy">Easy</label><br>
-                <input type="radio" id="medium" name="difficulty" value="medium">
-                <label for="medium">Medium</label><br>
-                <input type="radio" id="hard" name="difficulty" value="hard">
-                <label for="hard">Hard</label><br>
-                <input type="radio" id="mixed" name="difficulty" value="mixed">
-                <label for="mixed">Mixed</label><br>
-            </div><br>
-            <label>Quantity of Questions:</label><br>
-            <textarea class="small-textarea" type="text" id="quantity" placeholder="10"></textarea><br>
-            <p class="hidden error-msg" id="errorMsg">*Please fill out all the fields*</p>
-            <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
-            <button type="button" id="copy-prompt-button" class="disabled" disabled>Copy Prompt and Open
-                ChatGPT</button>
-        </form>
-        <div class="container">
-            <p id="aiPrompt"></p>
+      <h1 class="typed-out">Assessment Generator</h1>
+      <form id="prompt-form">
+        <label
+          >Grade: <br />
+          <textarea
+            class="small-textarea"
+            type="text"
+            id="grade"
+            placeholder="7th"
+          ></textarea></label
+        ><br />
+        <label
+          >Subject: <br />
+          <textarea
+            class="small-textarea"
+            type="text"
+            id="subject"
+            placeholder="math"
+          ></textarea></label
+        ><br />
+        <label
+          >Assessment Topic: <br />
+          <textarea
+            class="small-textarea"
+            type="text"
+            id="topic"
+            placeholder="ratios"
+          ></textarea></label
+        ><br />
+        <label>Question Types (Can select multiple):</label><br />
+        <div class="choice-box">
+          <input
+            type="checkbox"
+            id="type1"
+            name="type1"
+            value="multiple choice"
+          />
+          <label for="type1">Multiple Choice</label><br />
+          <input type="checkbox" id="type2" name="type2" value="word problem" />
+          <label for="type2">Word Problems</label><br />
+          <input
+            type="checkbox"
+            id="type4"
+            name="type4"
+            value="open response"
+          />
+          <label for="type4">Open Response</label><br />
+          <input
+            type="checkbox"
+            id="type5"
+            name="type5"
+            value="fill in the blank"
+          />
+          <label for="type5">Fill in the Blank</label><br />
+          <input
+            type="checkbox"
+            id="type6"
+            name="type6"
+            value="true or false"
+          />
+          <label for="type6">True or False</label><br />
         </div>
-
+        <br />
+        <label>Question Difficulty: </label><br />
+        <div class="choice-box">
+          <input type="radio" id="easy" name="difficulty" value="easy" />
+          <label for="easy">Easy</label><br />
+          <input type="radio" id="medium" name="difficulty" value="medium" />
+          <label for="medium">Medium</label><br />
+          <input type="radio" id="hard" name="difficulty" value="hard" />
+          <label for="hard">Hard</label><br />
+          <input type="radio" id="mixed" name="difficulty" value="mixed" />
+          <label for="mixed">Mixed</label><br />
+        </div>
+        <br />
+        <label>Quantity of Questions:</label><br />
+        <textarea
+          class="small-textarea"
+          type="text"
+          id="quantity"
+          placeholder="10"
+        ></textarea
+        ><br />
+        <p class="hidden error-msg" id="errorMsg">
+          *Please fill out all the fields*
+        </p>
+        <button class="hover active" type="submit" id="generate-prompt-button">
+          Generate Prompt
+        </button>
+        <button type="button" id="copy-prompt-button" class="disabled" disabled>
+          Copy Prompt and Open ChatGPT
+        </button>
+      </form>
+      <div class="container">
+        <p id="aiPrompt"></p>
+      </div>
     </div>
     <script src="assessments.js"></script>
-</body>
-
+  </body>
 </html>
