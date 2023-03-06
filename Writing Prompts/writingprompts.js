@@ -1,3 +1,4 @@
+//pulling form values for prompt generation
 const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
@@ -9,6 +10,7 @@ const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 const errorMsg = document.getElementById("errorMsg");
 
+//typwriter animation
 function typeWriter(txt) {
     var i = 0;
     var speed = 25;
@@ -34,7 +36,7 @@ function handleSubmit(event) {
     // Generate the prompt
     const prompt = `Write me ${number.value} potential writing prompt(s) for my ${grade.value} grade ${subject.value} class. They should require students to write a ${responseLength.value} about ${topic.value} and should assess these specific skills: ${skills.value}.`;
 
-    // Enable the copy prompt button
+    // Enable the copy prompt button and remove error message if necessary
     copyPromptButton.disabled = false;
     copyPromptButton.classList.remove("disabled");
     copyPromptButton.classList.add("enabled");
@@ -56,10 +58,8 @@ function copyPrompt() {
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
 
-    // Copy the selected text
+    // Copy & alert the selected text
     document.execCommand("copy");
-
-    // Alert the copied text
     alert("Copied the prompt");
 
     // Open a link to chat.openai.com
