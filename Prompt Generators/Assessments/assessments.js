@@ -9,16 +9,17 @@ const copyPromptButton = document.getElementById("copy-prompt-button");
 
 // Typewriter animation set up
 function typeWriter(txt) {
-  var i = 0;
-  var speed = 25;
+  let i = 0;
+  const speed = 25;
   function type() {
     if (i < txt.length) {
-      document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+      promptDisplay.innerHTML += txt.charAt(i);
       i++;
       setTimeout(type, speed);
     }
   }
   type();
+  clearTimeout(type);
 }
 
 function handleSubmit(event) {
@@ -36,7 +37,7 @@ function handleSubmit(event) {
   // Get the selected difficulty from radio
   const difficulty = document.querySelector(
     'input[type="radio"]:checked'
-  ).value;
+  )?.value;
 
   // Check if all required fields are filled out and reveal error message if not
   if (
@@ -54,7 +55,7 @@ function handleSubmit(event) {
   // Generate the prompt
   const prompt = `Make me a ${quantity.value} question assessment for ${
     grade.value
-  } students in my ${subject.value} class on the topic of ${
+  } grade students in my ${subject.value} class on the topic of ${
     topic.value
   }. The assessment should be of ${difficulty} difficulty. Make sure to include a variety of these question types: ${questionTypes.join(
     ", "
@@ -74,10 +75,10 @@ function handleSubmit(event) {
 
 function copyPrompt() {
   // Get the text field
-  var copyText = document.getElementById("aiPrompt");
+  const copyText = document.getElementById("aiPrompt");
 
   // Select the text field
-  var range = document.createRange();
+  const range = document.createRange();
   range.selectNode(copyText);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(range);
