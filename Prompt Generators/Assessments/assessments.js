@@ -27,17 +27,13 @@ function handleSubmit(event) {
 
   // Get the selected question types from checkboxes
   const questionTypes = [];
-  const checkboxes = document.querySelectorAll(
-    'input[type="checkbox"]:checked'
-  );
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   for (const checkbox of checkboxes) {
     questionTypes.push(checkbox.value);
   }
 
   // Get the selected difficulty from radio
-  const difficulty = document.querySelector(
-    'input[type="radio"]:checked'
-  )?.value;
+  const difficulty = document.querySelector('input[type="radio"]:checked')?.value;
 
   // Check if all required fields are filled out and reveal error message if not
   if (
@@ -53,9 +49,9 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `Make me a ${quantity.value} question assessment for ${
-    grade.value
-  } grade students in my ${subject.value} class on the topic of ${
+  const prompt = `Make me a ${quantity.value} question assessment for ${grade.value} grade students in my ${
+    subject.value
+  } class on the topic of ${
     topic.value
   }. The assessment should be of ${difficulty} difficulty. Make sure to include a variety of these question types: ${questionTypes.join(
     ", "

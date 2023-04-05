@@ -30,9 +30,7 @@ function handleSubmit(event) {
   const questionTypes = [];
 
   // Get the selected assessment method
-  const assessment = document.querySelector(
-    'input[type="radio"]:checked'
-  ).value;
+  const assessment = document.querySelector('input[type="radio"]:checked')?.value;
 
   // Check if all required fields are filled out
   if (
@@ -49,7 +47,7 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `Write me a lesson plan on ${topic.value} for a ${grade.value} grade ${subject.value} class. The essential standard for this unit is "${standard.value}". At the end of the ${time.value} minute lesson, students should be able ${objective.value}. Please include this assessment method: ${assessment}. Additionally, detail possible extension and intervention opportunities.`;
+  const prompt = `Write me a lesson plan on ${topic.value} for a ${grade.value} grade ${subject.value} class. The essential standard for this unit is "${standard.value}". At the end of the ${time.value} minute lesson, students should be able ${objective.value}. Please include an example ${assessment} to assess my students knowledge. Additionally, detail possible extension and intervention activities for this lesson.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
