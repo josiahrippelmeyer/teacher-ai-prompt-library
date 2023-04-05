@@ -23,50 +23,151 @@
   </head>
 
   <body>
-    <div class="prompt-box">
-      <h1>Writing Prompt Generator</h1>
-      <form id="prompt-form">
-        <label>Grade:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="grade" placeholder="7th"></textarea>
-        <br />
-        <label>Subject:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="subject" placeholder="Advanced ELA"></textarea>
-        <br />
-        <label>Number of Prompts:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="number" placeholder="3"></textarea>
-        <br />
-        <label>Length of Response:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="length" placeholder="5 paragraph essay"></textarea>
-        <br />
-        <label>Relevant Topic, Source Material, or Theme:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="topic" placeholder="S. E. Hinton's 'The Outsiders'"></textarea>
-        <br />
-        <label>Specific Skills Assessed:</label>
-        <br />
-        <textarea
-          class="large-textarea"
-          type="text"
-          id="skills"
-          placeholder="descriptive writing and figurative language"></textarea>
-        <br />
-        <p class="hidden error-msg" id="errorMsg">*Please fill out all the fields*</p>
-        <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
-        <button type="button" id="copy-prompt-button" class="disabled" disabled>Copy Prompt and Open ChatGPT</button>
-      </form>
-      <div class="container">
-        <p id="aiPrompt"></p>
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="home-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AI Prompt Library</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#home-navbar"
+          aria-controls="home-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="home-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../library.html">Library</a>
+            </li>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Prompt Generator-->
+    <div class="background-box border border-dark border-3">
+      <div class="prompt-box">
+        <h1>Writing Prompt Generator</h1>
+        <!-- Explain Button -->
+        <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Example
+        </button>
+        <!-- Explanation Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="px-3">
+                  <h4>Writing Prompt Generator:</h4>
+                  <p>
+                    Use this form to generate an AI prompt personalized for your specific needs! This form can be used
+                    to generate writing prompts for your students!
+                  </p>
+                  <hr />
+                  <h4>Instructions:</h4>
+                  <ol>
+                    <li>Customize the prompt filling out the form</li>
+                    <li>Click "Generate Prompt"</li>
+                    <li>Wait for the unique prompt to generate</li>
+                    <li>Click "Copy Prompt"</li>
+                    <li>Paste the prompt into ChatGPT</li>
+                    <li>See the results!</li>
+                  </ol>
+                </div>
+                <h4 class="bg-success py-2 m-0 text-center text-light fw-bold">Example AI Result:</h4>
+                <div class="bg-dark p-3 text-light">
+                  <ol>
+                    <li>
+                      In S. E. Hinton's "The Outsiders," the setting is a crucial aspect of the novel. Choose one
+                      specific location from the book and describe it in detail, using various literary devices such as
+                      simile, metaphor, personification, and imagery. How does the setting contribute to the overall
+                      tone and mood of the story?
+                    </li>
+                    <br />
+                    <li>
+                      S. E. Hinton uses various literary devices, including simile, metaphor, and hyperbole, to describe
+                      the characters in "The Outsiders." Choose one character from the book and analyze how Hinton uses
+                      these literary devices to create a vivid and complex portrayal of that character. What do these
+                      descriptions reveal about the character's personality and motivations?
+                    </li>
+                    <br />
+                    <li>
+                      "The Outsiders" is a novel about the power of friendship and loyalty. Choose two characters from
+                      the book and compare and contrast their friendship. How do they demonstrate their loyalty to each
+                      other throughout the story? Use descriptive language and figurative language to explore the depth
+                      of their relationship and its impact on the plot.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Prompt Form -->
+        <form id="prompt-form">
+          <label>Grade:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="7th"></textarea>
+          <br />
+          <label>Subject:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="Advanced ELA"></textarea>
+          <br />
+          <label>Number of Prompts:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="number" placeholder="3"></textarea>
+          <br />
+          <label>Length of Response:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="length" placeholder="5 paragraph essay"></textarea>
+          <br />
+          <label>Relevant Topic, Source Material, or Theme:</label>
+          <br />
+          <textarea
+            class="small-textarea bg-light"
+            type="text"
+            id="topic"
+            placeholder="S. E. Hinton's 'The Outsiders'"></textarea>
+          <br />
+          <label>Specific Skills Assessed:</label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="skills"
+            placeholder="descriptive writing and figurative language"></textarea>
+          <br />
+          <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
+            *Please fill out all the fields*
+          </p>
+          <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+          <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>
+        </form>
+        <div>
+          <p id="aiPrompt"></p>
+        </div>
       </div>
     </div>
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
     <!-- Prompt Library JS -->
-    <script src="assessments.js"></script>
+    <script src="writingprompts.js"></script>
   </body>
 </html>
