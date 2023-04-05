@@ -1,18 +1,14 @@
 body {
-  background: #d9d9d9;
-}
-
-h1,
-form {
-  max-width: 420px;
-  margin: 15px auto;
+  background-image: url("../images/bookshelf background.avif");
+  font-family: Raleway, Arial, sans-serif;
 }
 
 h1 {
   color: #0d0d0d;
   font-family: "Montserrat", Arial, Raleway, sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.75rem;
+  text-align: center;
 }
 
 label {
@@ -37,6 +33,24 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   outline: 0;
+}
+.background-box {
+  background: #d9d9d9;
+  width: 40%;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  box-shadow: 0px 0px 10px #fff;
+  border-radius: 50px;
+}
+
+.prompt-box {
+  max-width: 60%;
+  margin: 15px auto;
+}
+
+.exp-btn {
+  margin-bottom: 15px;
 }
 
 .prompt-input:focus {
@@ -89,7 +103,7 @@ textarea {
   box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.disabled {
+.copy-disabled {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   width: 100%;
   background: #404040;
@@ -115,7 +129,6 @@ textarea {
   font-family: Raleway, Arial, sans-serif;
   font-weight: 700;
   font-size: 16px;
-  max-width: 420px;
   margin: 50px auto;
   background-color: #0d0d0d;
   border-radius: 10px;
@@ -129,8 +142,9 @@ textarea {
 }
 
 .error-msg {
-  color: #cc4949;
-  font-family: Raleway, Arial, sans-serif;
+  color: #000;
+  text-align: center;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
+  border-radius: 50px;
 }
