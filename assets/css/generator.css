@@ -36,8 +36,9 @@ textarea {
 }
 .background-box {
   background: #d9d9d9;
-  width: 40%;
-  margin: auto;
+  width: 50%;
+  min-width: 365px;
+  margin: 15px auto;
   padding-top: 30px;
   padding-bottom: 15px;
   box-shadow: 0px 0px 10px #fff;
@@ -45,12 +46,17 @@ textarea {
 }
 
 .prompt-box {
-  max-width: 60%;
+  width: 65%;
+  min-width: 325px;
   margin: 15px auto;
 }
 
 .exp-btn {
   margin-bottom: 15px;
+}
+
+.modal-content {
+  background: #d9d9d9;
 }
 
 .prompt-input:focus {
