@@ -23,66 +23,164 @@
   </head>
 
   <body>
-    <div class="prompt-box">
-      <h1>Lesson Plan Generator</h1>
-      <form id="prompt-form">
-        <label>Grade:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="grade" placeholder="6th"></textarea>
-        <br />
-        <label>Subject:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="subject" placeholder="World History"></textarea>
-        <br />
-        <label>Essential Standard:</label>
-        <br />
-        <textarea
-          class="large-textarea"
-          type="text"
-          id="standard"
-          placeholder="H.13.6.10 Examine key concepts and influences of major belief systems on societies"></textarea>
-        <br />
-        <label>Topic:</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="topic" placeholder="Abrahamic religions"></textarea>
-        <br />
-        <label>Learning Objective (Students will be able...):</label>
-        <br />
-        <textarea
-          class="large-textarea"
-          type="text"
-          id="objective"
-          placeholder="to compare and contrast the origins, basic beliefs, and practices of Judaism, Christianity, and Islam "></textarea>
-        <br />
-        <label>Assessment Method:</label>
-        <br />
-        <div class="choice-box">
-          <input type="radio" id="observation" name="assessment" value="observation" />
-          <label for="observation">Observation</label>
-          <br />
-          <input type="radio" id="exit-ticket" name="assessment" value="exit-ticket" />
-          <label for="exit-ticket">Exit Ticket</label>
-          <br />
-          <input type="radio" id="quiz" name="assessment" value="quiz" />
-          <label for="quiz">Quiz</label>
-          <br />
-          <input type="radio" id="assignment" name="assessment" value="assignment" />
-          <label for="assignment">Turned in Assignment</label>
-          <br />
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="home-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AI Prompt Library</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#home-navbar"
+          aria-controls="home-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="home-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../library.html">Library</a>
+            </li>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          </form>
         </div>
-        <br />
-        <label>Time (minutes)</label>
-        <br />
-        <textarea class="small-textarea" type="text" id="time" placeholder="50"></textarea>
-        <br />
-        <p class="hidden error-msg" id="errorMsg">*Please fill out all the fields*</p>
-        <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
-        <button type="button" id="copy-prompt-button" class="disabled" disabled>Copy Prompt and Open ChatGPT</button>
-      </form>
-      <div class="container">
-        <p id="aiPrompt"></p>
+      </div>
+    </nav>
+    <!-- Prompt Generator-->
+    <div class="background-box border border-dark border-3">
+      <div class="prompt-box">
+        <h1>Lesson Plan Generator</h1>
+        <!-- Explain Button -->
+        <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Example
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="px-3">
+                  <h4>Assessment Generator:</h4>
+                  <p>
+                    Use this form to generate an AI prompt personalized for your specific needs! This form can be used
+                    to generate a prompt for creating assessments such as quizzes, exit tickets, tests, and more!
+                  </p>
+                  <hr />
+                  <h4>Instructions:</h4>
+                  <ol>
+                    <li>Customize the prompt filling out the form</li>
+                    <li>Click "Generate Prompt"</li>
+                    <li>Wait for the unique prompt to generate</li>
+                    <li>Click "Copy Prompt"</li>
+                    <li>Paste the prompt into ChatGPT</li>
+                    <li>See the results!</li>
+                  </ol>
+                </div>
+                <div class="bg-success py-2 m-0 text-center">
+                  <h4 class="text-light fw-bold">Example AI Result:</h4>
+                </div>
+                <div class="bg-dark p-3 text-light">
+                  <p>
+                    Sure, here are three questions of medium difficulty on the topic of ratios for 7th grade students:
+                  </p>
+                  <ol>
+                    <li>
+                      A recipe calls for a ratio of 2 cups of flour to 3 cups of sugar. If you want to make half of the
+                      recipe, how many cups of sugar do you need? Answer: 1.5 cups of sugar.
+                    </li>
+                    <li>
+                      A school has a ratio of 5 teachers to 150 students. If the school has a total of 30 teachers, how
+                      many students are there in the school? Answer: There are 900 students in the school.
+                    </li>
+                    <li>
+                      The ratio of the number of boys to the number of girls in a class is 2:3. If there are 24 boys in
+                      the class, how many students are there in the class? Answer: There are 40 students in the class.
+                    </li>
+                  </ol>
+                  <p>
+                    Note: For each question, make sure to provide space for students to show their work and justify
+                    their answers.
+                  </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Prompt Form -->
+        <form id="prompt-form">
+          <label>Grade:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="6th"></textarea>
+          <br />
+          <label>Subject:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="World History"></textarea>
+          <br />
+          <label>Essential Standard:</label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="standard"
+            placeholder="H.13.6.10 Examine key concepts and influences of major belief systems on societies"></textarea>
+          <br />
+          <label>Topic:</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="Abrahamic religions"></textarea>
+          <br />
+          <label>Learning Objective (Students will be able...):</label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="objective"
+            placeholder="to compare and contrast the origins, basic beliefs, and practices of Judaism, Christianity, and Islam "></textarea>
+          <br />
+          <label>Assessment Method:</label>
+          <br />
+          <div class="choice-box bg-light">
+            <input type="radio" id="observation" name="assessment" value="observation" />
+            <label for="observation">Observation</label>
+            <br />
+            <input type="radio" id="exit-ticket" name="assessment" value="exit-ticket" />
+            <label for="exit-ticket">Exit Ticket</label>
+            <br />
+            <input type="radio" id="quiz" name="assessment" value="quiz" />
+            <label for="quiz">Quiz</label>
+            <br />
+            <input type="radio" id="assignment" name="assessment" value="assignment" />
+            <label for="assignment">Turned in Assignment</label>
+            <br />
+          </div>
+          <br />
+          <label>Time (minutes)</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="time" placeholder="50"></textarea>
+          <br />
+          <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
+            *Please fill out all the fields*
+          </p>
+          <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+          <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>
+        </form>
+        <div>
+          <p id="aiPrompt"></p>
+        </div>
       </div>
     </div>
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
