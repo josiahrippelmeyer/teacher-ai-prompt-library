@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/bookshelf background.avif");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bookshelf background.avif");
   font-family: Raleway, Arial, sans-serif;
 }
 
@@ -41,7 +41,7 @@ textarea {
   margin: 30px auto;
   padding-top: 30px;
   padding-bottom: 15px;
-  box-shadow: 0px 0px 10px #fff;
+  box-shadow: 0px 0px 10px #000;
   border-radius: 50px;
 }
 

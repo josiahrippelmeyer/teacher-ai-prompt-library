@@ -3,8 +3,12 @@ body {
   font-family: Raleway, Arial, sans-serif;
 }
 
-section {
+#home {
   background-image: url("../images/bookshelf background.avif");
+}
+
+section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/bookshelf background.avif");
 }
 
 h1 {
@@ -13,11 +17,12 @@ h1 {
 
 /* Nav */
 
-/* Home */
-
-#home {
-  background-image: url("../images/bookshelf background.avif");
+.current-nav {
+  color: #078c4e !important;
+  font-weight: 600;
 }
+
+/* Home */
 
 .home-box {
   background: #d9d9d9;
