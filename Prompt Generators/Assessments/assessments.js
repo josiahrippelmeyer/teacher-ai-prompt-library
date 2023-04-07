@@ -10,7 +10,7 @@ const copyPromptButton = document.getElementById("copy-prompt-button");
 // Typewriter animation set up
 function typeWriter(txt) {
   let i = 0;
-  const speed = 25;
+  const speed = 10;
   function type() {
     if (i < txt.length) {
       promptDisplay.innerHTML += txt.charAt(i);
@@ -49,13 +49,15 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `Make me a ${quantity.value} question assessment for ${grade.value} grade students in my ${
-    subject.value
-  } class on the topic of ${
+  const prompt = `You are a teacher preparing to assess your ${grade.value} grade ${subject.value} on the topic of ${
     topic.value
-  }. The assessment should be of ${difficulty} difficulty. Make sure to include a variety of these question types: ${questionTypes.join(
+  }. First, determine what is essential for demonstrating mastery over the topic. Then, make a ${
+    quantity.value
+  } question assessment to assess your students' mastery. Make sure to include a variety of these question types: ${questionTypes.join(
     ", "
-  )}. Please include the answers.`;
+  )}. You must explain how to correctly solve each problem so you can help students who do poorly. finally, come up with topic-relevant extension projects for students who demonstrate mastery and topic-relevant intervention plans for students who do not. Do not forget that the questions should be appropriate for ${
+    grade.value
+  } grade students.`;
 
   // Enable the copy prompt button and hide error message
   copyPromptButton.disabled = false;

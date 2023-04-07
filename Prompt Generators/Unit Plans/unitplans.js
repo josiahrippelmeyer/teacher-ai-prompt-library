@@ -9,7 +9,7 @@ const time = document.getElementById("time");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-//typwriter animation
+//typewriter animation
 function typeWriter(txt) {
   var i = 0;
   var speed = 25;
