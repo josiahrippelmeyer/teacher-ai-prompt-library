@@ -9,10 +9,10 @@ const time = document.getElementById("time");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-//typwriter animation
+//typewriter animation
 function typeWriter(txt) {
   var i = 0;
-  var speed = 25;
+  var speed = 10;
   function type() {
     if (i < txt.length) {
       document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
@@ -29,9 +29,6 @@ function handleSubmit(event) {
   // Get the selected question types
   const questionTypes = [];
 
-  // Get the selected assessment method
-  const assessment = document.querySelector('input[type="radio"]:checked')?.value;
-
   // Check if all required fields are filled out
   if (
     grade.value === "" ||
@@ -39,7 +36,6 @@ function handleSubmit(event) {
     standard.value === "" ||
     objective.value === "" ||
     topic.value === "" ||
-    assessment === "" ||
     time.value === ""
   ) {
     errorMsg.classList.remove("hidden");
@@ -47,7 +43,7 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `Write me a lesson plan on ${topic.value} for a ${grade.value} grade ${subject.value} class. The essential standard for this unit is "${standard.value}". At the end of the ${time.value} minute lesson, students should be able ${objective.value}. Please include an example ${assessment} to assess my students knowledge. Additionally, detail possible extension and intervention activities for this lesson.`;
+  const prompt = `You are a master teacher helping a novice teacher prepare for an upcoming lesson by making a lesson plan outline with them. They teach a ${grade.value} grade ${subject.value} class. The lesson will be on the topic of ${topic.value} and target the essential standard "${standard.value}" You and the teacher decide that the objective should be for students to be able to ${objective.value}. Finally, the lesson should take no longer than ${time.value} minutes. As you build the lesson plan outline, make sure to consider these steps: First, determine how to tie the essential standard to the topic. Second, analyze how students can demonstrate proficiency and the objective has been accomplished. Third, provide several possible assessment methods to assess the students' level of mastery. Fourth, provide possible intervention activities to help students who have not reached proficiency and extension or PBL opportunities for students who have demonstrated mastery. Finally, feel free to provide helpful tips for the novice teacher and warn them of any potential complications they encounter.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
