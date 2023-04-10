@@ -135,9 +135,21 @@
           <label>
             Assessment Topic:
             <span class="text-danger">*</span>
+            <br />
           </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="ratios"></textarea>
+          <br />
+          <label>
+            Learning Objectives of the Lesson:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="objective"
+            placeholder="to use ratios to solve practical word problems"></textarea>
           <br />
           <label>
             Question Types (Can select multiple):
@@ -188,6 +200,10 @@
           </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="quantity" placeholder="10"></textarea>
+          <br />
+          <label>Time Limit (optional):</label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="time" placeholder="30 minutes"></textarea>
           <br />
           <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
             *Please fill out all the fields*

@@ -3,6 +3,8 @@ const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
 const topic = document.getElementById("topic");
+const learningObjectives = document.getElementById("objective");
+const timeLimit = document.getElementById("time");
 const quantity = document.getElementById("quantity");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
@@ -42,7 +44,8 @@ function handleSubmit(event) {
     topic.value === "" ||
     questionTypes.length === 0 ||
     difficulty === "" ||
-    quantity.value === ""
+    quantity.value === "" ||
+    learningObjectives.value === ""
   ) {
     errorMsg.classList.remove("hidden");
     return;
@@ -51,13 +54,15 @@ function handleSubmit(event) {
   // Generate the prompt
   const prompt = `You are a teacher preparing to assess your ${grade.value} grade ${subject.value} on the topic of ${
     topic.value
-  }. First, determine what is essential for demonstrating mastery over the topic. Then, make a ${
+  }. The learning objectives for this assessment are: ${learningObjectives.value}. Create a ${
     quantity.value
-  } question assessment to assess your students' mastery. Make sure to include a variety of these question types: ${questionTypes.join(
+  } question assessment to evaluate your students' mastery. Include a variety of these question types: ${questionTypes.join(
     ", "
-  )}. You must explain how to correctly solve each problem so you can help students who do poorly. finally, come up with topic-relevant extension projects for students who demonstrate mastery and topic-relevant intervention plans for students who do not. Do not forget that the questions should be appropriate for ${
+  )}. Ensure the questions are appropriate for ${
     grade.value
-  } grade students.`;
+  } grade students and align with the chosen difficulty level: ${difficulty}. Provide explanations for the correct solutions to each problem to help students who struggle. ${
+    timeLimit.value ? `Design the assessment to fit within a time limit of ${timeLimit.value} minutes.` : ""
+  } Finally, suggest topic-relevant extension projects for students who demonstrate mastery and topic-relevant intervention plans for students who do not.`;
 
   // Enable the copy prompt button and hide error message
   copyPromptButton.disabled = false;
