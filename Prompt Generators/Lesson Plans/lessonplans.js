@@ -26,9 +26,6 @@ function typeWriter(txt) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Get the selected question types
-  const questionTypes = [];
-
   // Check if all required fields are filled out
   if (
     grade.value === "" ||
@@ -43,7 +40,15 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `You are a master teacher helping a novice teacher prepare for an upcoming lesson by making a lesson plan outline with them. They teach a ${grade.value} grade ${subject.value} class. The lesson will be on the topic of ${topic.value} and target the essential standard "${standard.value}." By the end of the lesson, students should be able to ${objective.value}. Finally, the lesson should take no longer than ${time.value} minutes. As you build the lesson plan outline, make sure to consider these steps: First, determine how to tie the essential standard to the topic. Second, analyze how students can demonstrate proficiency and the objective has been accomplished. Third, provide several possible assessment methods to assess the students' level of mastery. Fourth, provide possible intervention activities to help students who have not reached proficiency and extension or PBL opportunities for students who have demonstrated mastery. Finally, feel free to provide helpful tips for the novice teacher and warn them of any potential complications they encounter.`;
+  const prompt = `Create a detailed lesson plan outline for a ${grade.value} grade ${subject.value} class on the topic of ${topic.value}, targeting the essential standard "${standard.value}". The lesson should be designed to last ${time.value} minutes and enable students to achieve the following learning objective: ${objective.value}.
+
+  Please include the following elements in the lesson plan outline:
+  1. Introduction: Explain how to engage students and introduce the topic, connecting it to the essential standard.
+  2. Main Activity: Describe the core instructional activities that will help students develop an understanding of the topic and achieve the learning objective.
+  3. Assessments: Suggest various assessment methods to gauge students' level of mastery.
+  4. Intervention and Extension Activities: Provide possible intervention activities for students who need extra support and extension or PBL opportunities for students who have demonstrated mastery.
+  5. Closure: Detail how to wrap up the lesson and reinforce the key takeaways.
+  6. Tips and Potential Complications: Offer helpful advice for the novice teacher and warn them of any potential challenges they may encounter during the lesson.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
