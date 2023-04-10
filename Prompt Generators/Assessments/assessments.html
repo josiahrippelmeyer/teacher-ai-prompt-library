@@ -85,7 +85,7 @@
                     <li>See the results!</li>
                   </ol>
                 </div>
-                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
+                <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
                 <div class="bg-dark p-3 text-light">
                   <p>
                     Sure, here are three questions of medium difficulty on the topic of ratios for 7th grade students:
@@ -118,19 +118,31 @@
         </div>
         <!-- Prompt Form -->
         <form id="prompt-form">
-          <label>Grade:</label>
+          <label>
+            Grade:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="7th"></textarea>
           <br />
-          <label>Subject:</label>
+          <label>
+            Subject:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="math"></textarea>
           <br />
-          <label>Assessment Topic:</label>
+          <label>
+            Assessment Topic:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="ratios"></textarea>
           <br />
-          <label>Question Types (Can select multiple):</label>
+          <label>
+            Question Types (Can select multiple):
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <div class="choice-box bg-light">
             <input type="checkbox" id="type1" name="type1" value="multiple choice" />
@@ -150,7 +162,10 @@
             <br />
           </div>
           <br />
-          <label>Question Difficulty:</label>
+          <label>
+            Question Difficulty:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <div class="choice-box bg-light">
             <input type="radio" id="easy" name="difficulty" value="easy" />
@@ -167,7 +182,10 @@
             <br />
           </div>
           <br />
-          <label>Quantity of Questions:</label>
+          <label>
+            Quantity of Questions:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="quantity" placeholder="10"></textarea>
           <br />

@@ -60,7 +60,7 @@
         <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Example
         </button>
-        <!-- Explain Modul -->
+        <!-- Explain Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -72,7 +72,7 @@
                   <h4>Unit Plan Generator:</h4>
                   <p>
                     Use this form to generate an AI prompt personalized for your specific needs! This form can be used
-                    to generate a prompt for creating a unit plan outline. The AI will  certainly not do all the planning
+                    to generate a prompt for creating a unit plan outline. The AI will certainly not do all the planning
                     work; however, it will provide an excellent starting point and structure for an educator to build
                     from.
                   </p>
@@ -100,15 +100,24 @@
         </div>
         <!-- Prompt Form -->
         <form id="prompt-form">
-          <label>Grade:</label>
+          <label>
+            Grade:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="6th" required></textarea>
           <br />
-          <label>Subject:</label>
+          <label>
+            Subject:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="World History"></textarea>
           <br />
-          <label>Essential Standards:</label>
+          <label>
+            Essential Standards:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea
             class="large-textarea bg-light"
@@ -116,11 +125,17 @@
             id="standard"
             placeholder="H.13.6.10 Examine key concepts and influences of major belief systems on societies"></textarea>
           <br />
-          <label>Topic:</label>
+          <label>
+            Topic:
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="Abrahamic religions"></textarea>
           <br />
-          <label>Learning Objective (Students will be able...):</label>
+          <label>
+            Learning Objective (Students will be able...):
+            <span class="text-danger">*</span>
+          </label>
           <br />
           <textarea
             class="large-textarea bg-light"
