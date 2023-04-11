@@ -68,28 +68,99 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body p-0">
-                <div class="px-3">
-                  <h4>Unit Plan Generator:</h4>
-                  <p>
+                <div class="m-0">
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Unit Plan Generator:</h4>
+                  <p class="p-3">
                     Use this form to generate an AI prompt personalized for your specific needs! This form can be used
                     to generate a prompt for creating a unit plan outline. The AI will certainly not do all the planning
                     work; however, it will provide an excellent starting point and structure for an educator to build
                     from.
                   </p>
-                  <hr />
-                  <h4>Instructions:</h4>
-                  <ol>
-                    <li>Customize the prompt filling out the form</li>
-                    <li>Click "Generate Prompt"</li>
-                    <li>Wait for the unique prompt to generate</li>
-                    <li>Click "Copy Prompt"</li>
-                    <li>Paste the prompt into ChatGPT</li>
-                    <li>See the results!</li>
-                  </ol>
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Instructions:</h4>
+                  <div class="p-3">
+                    <ol>
+                      <li>Customize the prompt filling out the form</li>
+                      <li>Click "Generate Prompt"</li>
+                      <li>Wait for the unique prompt to generate</li>
+                      <li>Click "Copy Prompt"</li>
+                      <li>Paste the prompt into ChatGPT</li>
+                      <li>See the results!</li>
+                      <li>
+                        Type
+                        <span class="fw-bold text-success">"continue"</span>
+                        into the chat if the AI's answer ends before it is complete
+                      </li>
+                    </ol>
+                  </div>
                 </div>
                 <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
                 <div class="bg-dark p-3 text-light">
-                  <p>placeholder</p>
+                  <p>
+                    Sure, I'd be happy to help you create a unit plan for a 6th grade Social Studies class on the topic
+                    of Renaissance. Here is a detailed outline for the unit plan:
+                    <br />
+                    <br />
+                    I. Unit Overview and Essential Standards
+                    <br />
+                    <br />
+                    A. Essential Standards:
+                  </p>
+                  <ol>
+                    <li>
+                      Analyze the significance of contributions made by major empires & civilizations of the world
+                    </li>
+                    <li>
+                      Analyze ways rules and laws change society & reasons why people change rules and laws over time
+                    </li>
+                  </ol>
+                  <p>B. Unit Overview:</p>
+                  <ol>
+                    <li>Topic: Renaissance</li>
+                    <li>Duration: 10 lessons of 45 minutes each</li>
+                    <li>Skills: Primary source analysis, compare and contrast, inquiry</li>
+                    <li>Suggested resources or materials: Art and architecture of the Renaissance</li>
+                    <li>
+                      Real-world connections or current events: The lasting impact of the Renaissance thinkers on our
+                      government, society, religions, and culture
+                    </li>
+                  </ol>
+                  <p>
+                    II. Lesson Plans Lesson
+                    <br />
+                    <br />
+                    1) Introduction to the Renaissance
+                    <br />
+                    <br />
+                    A. Learning objectives:
+                  </p>
+                  <ol>
+                    <li>Students will identify the time period and location of the Renaissance</li>
+                    <li>
+                      Students will understand the cultural, economic, and political changes that led to the Renaissance
+                    </li>
+                    <li>Students will use primary sources to learn about the Renaissance</li>
+                  </ol>
+                  <p>B. Activities:</p>
+                  <ol>
+                    <li>KWL Chart</li>
+                    <li>Group discussion</li>
+                    <li>Primary source analysis (paintings, sculptures, and architecture)</li>
+                  </ol>
+                  <p>C. Formative assessment:</p>
+                  <ol>
+                    <li>Class discussion</li>
+                    <li>Exit ticket</li>
+                  </ol>
+                  <p>D. Summative assessment:</p>
+                  <ol>
+                    <li>Quiz on Renaissance facts</li>
+                  </ol>
+
+                  <p>
+                    Lesson 2: Art and Architecture of the Renaissance
+                    <br />
+                    (continued...)
+                  </p>
                 </div>
               </div>
               <div class="modal-footer">
@@ -105,67 +176,76 @@
             <span class="text-danger">*</span>
           </label>
           <br />
-          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="6th" required></textarea>
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="8th"></textarea>
           <br />
           <label>
             Subject:
             <span class="text-danger">*</span>
           </label>
           <br />
-          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="World History"></textarea>
+          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="Science"></textarea>
           <br />
           <label>
-            Essential Standards:
+            Unit Topic:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="Weather and Climate"></textarea>
+          <br />
+          <label>
+            Number of Lessons:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="lessons" placeholder="5"></textarea>
+          <br />
+          <label>
+            Duration of Each Lesson (minutes):
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="duration" placeholder="45"></textarea>
+          <br />
+          <label>
+            Essential Standards or Learning Objectives:
             <span class="text-danger">*</span>
           </label>
           <br />
           <textarea
             class="large-textarea bg-light"
             type="text"
-            id="standard"
-            placeholder="H.13.6.10 Examine key concepts and influences of major belief systems on societies"></textarea>
+            id="standards"
+            placeholder="MS-ESS2-5: Collect data to provide evidence for how the motions and complex interactions of air masses..."></textarea>
           <br />
           <label>
-            Topic:
-            <span class="text-danger">*</span>
-          </label>
-          <br />
-          <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="Abrahamic religions"></textarea>
-          <br />
-          <label>
-            Learning Objective (Students will be able...):
+            Specific Skills Assessed or Developed:
             <span class="text-danger">*</span>
           </label>
           <br />
           <textarea
             class="large-textarea bg-light"
             type="text"
-            id="objective"
-            placeholder="to compare and contrast the origins, basic beliefs, and practices of Judaism, Christianity, and Islam "></textarea>
+            id="skills"
+            placeholder="Data analysis, interpreting weather maps, understanding the role of air pressure..."></textarea>
           <br />
-          <label>Assessment Method:</label>
+          <label>Resources or Materials (optional):</label>
           <br />
-          <div class="choice-box bg-light">
-            <!-- <input type="radio" id="observation" name="assessment" value="observation" />
-            <label for="observation">Observation</label>
-            <br /> -->
-            <input type="radio" id="exit-ticket" name="assessment" value="exit-ticket" />
-            <label for="exit-ticket">Exit Ticket</label>
-            <br />
-            <input type="radio" id="quiz" name="assessment" value="quiz" />
-            <label for="quiz">Quiz</label>
-            <br />
-            <input type="radio" id="assignment" name="assessment" value="assignment" />
-            <label for="assignment">Turned in Assignment</label>
-            <br />
-          </div>
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="resources"
+            placeholder="Weather maps, weather station data, videos on air masses..."></textarea>
           <br />
-          <label>Time (minutes)</label>
+          <label>Real-World Connections or Current Events (optional):</label>
           <br />
-          <textarea class="small-textarea bg-light" type="text" id="time" placeholder="50"></textarea>
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="connections"
+            placeholder="Effects of climate change on local weather patterns, recent extreme weather events..."></textarea>
           <br />
           <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
-            *Please fill out all the fields*
+            *Please fill out all the required fields*
           </p>
           <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
           <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>

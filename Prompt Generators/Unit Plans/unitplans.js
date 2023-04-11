@@ -1,18 +1,21 @@
-//pulling form values for prompt generation
 const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
-const standard = document.getElementById("standard");
-const objective = document.getElementById("objective");
 const topic = document.getElementById("topic");
-const time = document.getElementById("time");
+const lessons = document.getElementById("lessons");
+const duration = document.getElementById("duration");
+const standards = document.getElementById("standards");
+const skills = document.getElementById("skills");
+const resources = document.getElementById("resources");
+const connections = document.getElementById("connections");
+const errorMsg = document.getElementById("errorMsg");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-//typewriter animation
+// Typewriter animation
 function typeWriter(txt) {
   var i = 0;
-  var speed = 25;
+  var speed = 10;
   function type() {
     if (i < txt.length) {
       document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
@@ -26,32 +29,38 @@ function typeWriter(txt) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Get the selected question types
-  const questionTypes = [];
-
-  // Get the selected assessment method
-  const assessment = document.querySelector('input[type="radio"]:checked')?.value;
-
   // Check if all required fields are filled out
   if (
     grade.value === "" ||
     subject.value === "" ||
-    standard.value === "" ||
-    objective.value === "" ||
     topic.value === "" ||
-    assessment === "" ||
-    time.value === ""
+    lessons.value === "" ||
+    duration.value === "" ||
+    standards.value === "" ||
+    skills.value === ""
   ) {
     errorMsg.classList.remove("hidden");
     return;
   }
 
-  // Generate the prompt
-  const prompt = `Write me a lesson plan on ${topic.value} for a ${grade.value} grade ${subject.value} class. The essential standard for this unit is "${standard.value}". At the end of the ${time.value} minute lesson, students should be able ${objective.value}. Please include an example ${assessment} to assess my students knowledge. Additionally, detail possible extension and intervention activities for this lesson.`;
+  // Generate the prompt with chain-of-thought
+  const prompt = `You are helping a teacher create a unit plan for a ${grade.value} grade ${
+    subject.value
+  } class on the topic of ${topic.value}. The unit should consist of ${lessons.value} lessons, each lasting ${
+    duration.value
+  } minutes. The essential standards or learning objectives for this unit are: ${
+    standards.value
+  }. The unit should focus on developing the following skills: ${skills.value}.${
+    resources.value ? " The suggested resources or materials for this unit are: " + resources.value + "." : ""
+  }${
+    connections.value
+      ? " Some real-world connections or current events that can be tied to this unit are: " + connections.value + "."
+      : ""
+  } As you provide a detailed outline for this unit plan, consider the following: First, break down the essential standards into smaller learning objectives that can be achieved in each lesson. Second, create engaging activities that will help students develop the targeted skills. Third, provide options for formative and summative assessments that align with the learning objectives. Fourth, suggest possible intervention strategies and extension activities for students who need additional support or are ready for a challenge. Finally, offer tips on how to effectively integrate the suggested resources and real-world connections into the lessons.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
-  copyPromptButton.classList.remove("disabled");
+  copyPromptButton.classList.remove("copy-disabled");
   copyPromptButton.classList.add("enabled");
   copyPromptButton.classList.add("hover");
   copyPromptButton.classList.add("active");
