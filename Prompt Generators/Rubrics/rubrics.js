@@ -2,11 +2,26 @@ const form = document.getElementById("prompt-form");
 const grade = document.getElementById("grade");
 const subject = document.getElementById("subject");
 const task = document.getElementById("task");
-const criteria = document.getElementById("criteria");
 const descriptions = document.getElementById("descriptions");
 const performanceLevels = document.getElementById("performanceLevels");
 const errorMsg = document.getElementById("errorMsg");
 const copyPromptButton = document.getElementById("copy-prompt-button");
+const aiCriteria = document.getElementById("aiCriteria");
+const userCriteria = document.getElementById("userCriteria");
+const criteriaInput = document.getElementById("criteriaInput");
+
+//Unhide criteria
+aiCriteria.addEventListener("change", () => {
+  if (aiCriteria.checked) {
+    criteriaInput.classList.add("hidden");
+  }
+});
+
+userCriteria.addEventListener("change", () => {
+  if (userCriteria.checked) {
+    criteriaInput.classList.remove("hidden");
+  }
+});
 
 //typewriter animation
 function typeWriter(txt) {
@@ -29,25 +44,22 @@ function handleSubmit(event) {
   if (
     grade.value === "" ||
     subject.value === "" ||
-    task.value === "" ||
-    criteria.value === "" ||
-    descriptions.value === "" ||
-    performanceLevels.value === ""
+    performanceLevels.value === "" ||
+    (userCriteria.checked && descriptions.value === "")
   ) {
     errorMsg.classList.remove("hidden");
     return;
   }
 
-  // Generate the prompt with chain-of-thought
-  const prompt = `Create a rubric for a ${grade.value} grade ${subject.value} class with a focus on ${
-    task.value
-  }. The rubric should have ${criteria.value} criteria and ${
-    performanceLevels.value
-  } performance levels. The criteria should include: ${descriptions.value
-    .split(";")
-    .join(
-      ", "
-    )}. Please describe each performance level for every criterion and provide a clear distinction between each level.`;
+  let criteriaDescription;
+  if (userCriteria.checked) {
+    criteriaDescription = `The criteria should include: ${descriptions.value.split(";").join(", ")}.`;
+  } else {
+    criteriaDescription = `Please suggest suitable criteria for the rubric.`;
+  }
+
+  // Generate the prompt
+  const prompt = `I need a rubric for a ${grade.value} grade ${subject.value} assignment on ${task.value}. The rubric should have ${performanceLevels.value} performance levels. ${criteriaDescription} Please describe each performance level for every criterion and provide a clear distinction between each level.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
