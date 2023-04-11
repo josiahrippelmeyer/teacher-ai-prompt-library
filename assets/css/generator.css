@@ -80,22 +80,22 @@ textarea {
   resize: vertical;
 }
 
-/* Custom checkboxes */
+/* Custom checkbox and radio */
 
 .choice-box {
   border-radius: 5px;
   background-color: transparent;
   border: 2px solid #078c4e;
   transition: all 0.3s;
-  padding: 13px;
+  padding: 5px 0px 5px 13px;
   margin-bottom: 5px;
   width: 100%;
   box-sizing: border-box;
   outline: 0;
+  max-height: fit-content;
 }
 
 .custom-check {
-  display: block;
   position: relative;
   padding-left: 30px;
   cursor: pointer;
@@ -124,7 +124,22 @@ textarea {
   border-radius: 3px;
 }
 
+.radio {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
 .custom-check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.custom-check:hover input ~ .radio {
   background-color: #ccc;
 }
 
@@ -132,7 +147,17 @@ textarea {
   background-color: #078c4e;
 }
 
+.custom-check input:checked ~ .radio {
+  background-color: #078c4e;
+}
+
 .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio:after {
   content: "";
   position: absolute;
   display: none;
@@ -150,7 +175,20 @@ textarea {
   transform: rotate(45deg);
 }
 
+.custom-check .radio:after {
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
+}
+
 .custom-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.custom-check input:checked ~ .radio:after {
   display: block;
 }
 
@@ -213,7 +251,6 @@ textarea {
   padding: 50px 13px;
   margin-top: 20px;
 }
-
 
 /* Error Message */
 
