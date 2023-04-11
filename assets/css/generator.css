@@ -76,6 +76,8 @@ textarea {
   resize: vertical;
 }
 
+/* Custom checkboxes */
+
 .choice-box {
   border-radius: 5px;
   background-color: transparent;
@@ -87,6 +89,67 @@ textarea {
   box-sizing: border-box;
   outline: 0;
 }
+
+.custom-check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.old-check {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 1px solid #078c4e;
+}
+
+.custom-check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.custom-check input:checked ~ .checkmark {
+  background-color: #078c4e;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-check .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.custom-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Buttons */
 
 [type="submit"],
 .enabled {
