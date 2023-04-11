@@ -70,7 +70,7 @@
               <div class="modal-body p-0">
                 <div class="m-0">
                   <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Assessment Plan Generator:</h4>
-                  <p class="p-3">
+                  <p class="p-3 bg-dark text-light m-0">
                     Use this form to generate an AI prompt personalized for your specific needs! This form can be used
                     to generate a prompt for creating assessments such as quizzes, exit tickets, tests, and more!
                   </p>
@@ -162,22 +162,38 @@
             <span class="text-danger">*</span>
           </label>
           <br />
+          <!-- Checkbox -->
           <div class="choice-box bg-light">
-            <input type="checkbox" id="type1" name="type1" value="multiple choice" />
-            <label for="type1">Multiple Choice</label>
+            <label for="type1" class="custom-check">
+              Multiple Choice
+              <input type="checkbox" id="type1" name="type1" value="multiple choice" class="old-check" />
+              <span class="checkmark"></span>
+            </label>
             <br />
-            <input type="checkbox" id="type2" name="type2" value="word problem" />
-            <label for="type2">Word Problems</label>
+            <label for="type2" class="custom-check">
+              Word Problems
+              <input type="checkbox" id="type2" name="type2" value="word problem" class="old-check" />
+              <span class="checkmark"></span>
+            </label>
             <br />
-            <input type="checkbox" id="type4" name="type4" value="open response" />
-            <label for="type4">Open Response</label>
+            <input type="checkbox" id="type4" name="type4" value="open response" class="old-check" />
+            <label for="type4" class="custom-check">
+              Open Response
+              <input type="checkbox" id="type4" name="type4" value="open response" class="old-check" />
+              <span class="checkmark"></span>
+            </label>
             <br />
-            <input type="checkbox" id="type5" name="type5" value="fill in the blank" />
-            <label for="type5">Fill in the Blank</label>
+            <label for="type5" class="custom-check">
+              Fill in the Blank
+              <input type="checkbox" id="type5" name="type5" value="fill in the blank" class="old-check" />
+              <span class="checkmark"></span>
+            </label>
             <br />
-            <input type="checkbox" id="type6" name="type6" value="true or false" />
-            <label for="type6">True or False</label>
-            <br />
+            <label for="type6" class="custom-check">
+              True or False
+              <input type="checkbox" id="type6" name="type6" value="true or false" class="old-check" />
+              <span class="checkmark"></span>
+            </label>
           </div>
           <br />
           <label>
