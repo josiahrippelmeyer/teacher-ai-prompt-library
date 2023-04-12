@@ -55,7 +55,7 @@
     <!-- Prompt Generator-->
     <div class="background-box border border-dark border-3">
       <div class="prompt-box">
-        <h1>Simplify Complex Topics</h1>
+        <h1>Summarize Article</h1>
         <!-- Explain Button -->
         <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Example
@@ -69,14 +69,12 @@
               </div>
               <div class="modal-body p-0">
                 <div class="m-0">
-                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Simplify Complex Terms:</h4>
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Summarize Article:</h4>
                   <p class="p-3 bg-dark text-light m-0">
-                    Use this form to generate an AI prompt tailored to your specific needs! This form is designed to
-                    help you simplify complex topics for your students, making it easier for them to grasp challenging
-                    concepts. By providing details about the topic, grade, subject, and format, you'll receive a clear
-                    and concise explanation that takes into account your students' age and background knowledge. This
-                    generator is perfect for educators looking to break down complicated ideas into more understandable
-                    terms, ensuring effective learning for all students.
+                    Use this form to generate a personalized AI prompt to help you create concise and accurate summaries
+                    of articles! This form is designed to assist you in summarizing articles from various sources and
+                    fields, focusing on the key points and specific concepts you want to include. Ideal for educators,
+                    students, and professionals who need to distill complex information into a digestible format.
                   </p>
                   <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Instructions:</h4>
                   <div class="p-3">
@@ -98,36 +96,15 @@
                 <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
                 <div class="bg-dark p-3 text-light">
                   <p>
-                    Sure, I can help you simplify the topic of quantum mechanics for your 8th grade physics class! Here
-                    are some explanations for wave-particle duality, superposition, and entanglement using simple
-                    analogies:
-                  </p>
-                  <ol>
-                    <li>
-                      Wave-Particle Duality: Wave-particle duality is the idea that particles, like electrons and
-                      photons, can behave like waves and particles at the same time. Imagine you're at a baseball game
-                      and a player hits a home run. You see the ball fly through the air like a particle, but then it
-                      also creates waves as it travels through the air. Similarly, electrons can act like particles or
-                      waves, depending on how you observe them.
-                    </li>
-                    <li>
-                      Superposition: Superposition is the idea that particles can exist in multiple states at the same
-                      time. This might sound strange, but think of it like a traffic light. When the light is green, the
-                      car can go forward, but it can also turn left or right if it wants to. The car is in a
-                      superposition of different states, and it's not until we observe it that we know which state it's
-                      in.
-                    </li>
-                    <li>
-                      Entanglement: Entanglement is when two particles are connected in a way that their properties are
-                      linked, even when they're far apart. Imagine you have two spinning tops that are connected by a
-                      string. When you spin one top, the other one will start spinning too, no matter how far apart they
-                      are. In the same way, two entangled particles can influence each other's behavior, even if they're
-                      separated by great distances.
-                    </li>
-                  </ol>
-                  <p>
-                    I hope these analogies help your students understand these complex ideas in a simpler way! Let me
-                    know if you have any other questions.
+                    In this article, Arthur Schwartz argues that cultivating positive habits is essential for the
+                    well-being and positive growth of students, helping them develop character strengths such as
+                    patience, gratitude, and service to others. He explains the science of habit formation and offers
+                    five concepts to teach students about habits, including the importance of stable cues, habit hacks
+                    that work, and the need to plan habits. Schwartz emphasizes that setting goals and sheer willpower
+                    aren't enough to form positive habits, and that preparation is key. He calls on parents and
+                    educators to work together to help students harness the energy and power of positive habits,
+                    envisioning a future where every student can demonstrate and explain how they have formed and
+                    consistently practiced a positive habit.
                   </p>
                 </div>
               </div>
@@ -140,74 +117,39 @@
         <!-- Prompt Form -->
         <form id="prompt-form">
           <label>
-            Complex Topic:
+            Article Title:
             <span class="text-danger">*</span>
           </label>
-          <br />
-          <textarea class="small-textarea bg-light" type="text" id="topic" placeholder="Quantum mechanics"></textarea>
-          <br />
-          <label>
-            Target Grade Level:
-            <span class="text-danger">*</span>
-          </label>
-          <br />
-          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="8th"></textarea>
-          <br />
-          <label>
-            Subject Area:
-            <span class="text-danger">*</span>
-          </label>
-          <br />
-          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="Physics"></textarea>
-          <br />
-          <label>Specific Points or Concepts (separated by semicolon & Optional):</label>
           <br />
           <textarea
-            class="large-textarea bg-light"
             type="text"
-            id="points"
-            placeholder="Wave-particle duality; Superposition; Entanglement"></textarea>
+            id="title"
+            class="large-textarea bg-light"
+            placeholder="How to Help Your Students Develop Positive Habits"></textarea>
           <br />
           <label>
-            Desired Format for Simplified Explanation:
+            Article Author:
             <span class="text-danger">*</span>
           </label>
           <br />
-          <!-- Desired Format Custom CSS Radio -->
-          <div class="choice-box bg-light">
-            <label class="custom-check" for="bullets">
-              Bulleted List
-              <input class="old-check" type="radio" name="format" id="bullets" value="bullets" />
-              <span class="radio"></span>
-            </label>
-            <br />
-            <label class="custom-check" for="paragraph">
-              Paragraph
-              <input class="old-check" type="radio" name="format" id="paragraph" value="paragraph" />
-              <span class="radio"></span>
-            </label>
-            <br />
-            <label class="custom-check" for="chart">
-              Chart/Graphic Organizer
-              <input class="old-check" type="radio" name="format" id="chart" value="chart" />
-              <span class="radio"></span>
-            </label>
-            <br />
-            <label class="custom-check" for="analogy">
-              Analogy
-              <input class="old-check" type="radio" name="format" id="analogy" value="analogy" />
-              <span class="radio"></span>
-            </label>
-            <br />
-            <label class="custom-check" for="limerick">
-              Limerick
-              <input class="old-check" type="radio" name="format" id="limerick" value="limerick" />
-              <span class="radio"></span>
-            </label>
-          </div>
+          <textarea type="text" id="author" class="small-textarea bg-light" placeholder="Arthur Schwartz"></textarea>
+          <br />
+          <label>
+            Paste Article Content:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="large-textarea bg-light" id="paste" placeholder="Paste here...."></textarea>
+          <br />
+          <label>
+            Desired Length of Summary:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea type="text" id="length" class="small-textarea bg-light" placeholder="1 paragraph"></textarea>
           <br />
           <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
-            *Please fill out all the required fields*
+            *Please fill out all the fields*
           </p>
           <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
           <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>
@@ -223,6 +165,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"></script>
     <!-- Prompt Library JS -->
-    <script src="simpleterms.js"></script>
+    <script src="summary.js"></script>
   </body>
 </html>
