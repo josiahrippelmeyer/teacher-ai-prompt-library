@@ -10,7 +10,7 @@ const aiCriteria = document.getElementById("aiCriteria");
 const userCriteria = document.getElementById("userCriteria");
 const criteriaInput = document.getElementById("criteriaInput");
 
-//Unhide criteria
+//Unhide criteria input
 aiCriteria.addEventListener("change", () => {
   if (aiCriteria.checked) {
     criteriaInput.classList.add("hidden");

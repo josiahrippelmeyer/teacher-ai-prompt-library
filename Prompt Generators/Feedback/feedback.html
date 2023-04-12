@@ -182,6 +182,43 @@
             id="criteria"
             placeholder="Strong claim; text-based evidence; clear reasoning that ties evidence to claim"></textarea>
           <br />
+          <label>
+            Do you want the AI to provide a score?
+            <span class="text-danger">*</span>
+          </label>
+          <div class="choice-box bg-light">
+            <label for="yesScore" class="custom-check">
+              Yes
+              <input type="radio" id="yesScore" name="score" value="yesScore" class="old-check" required />
+              <span class="radio"></span>
+            </label>
+            <br />
+            <label for="noScore" class="custom-check">
+              No
+              <input type="radio" id="noScore" name="score" value="noScore" class="old-check" />
+              <span class="radio"></span>
+            </label>
+          </div>
+          <div id="maxScoreInput" class="hidden">
+            <br />
+            <label>
+              Maximum Score:
+              <span class="text-danger">*</span>
+            </label>
+            <br />
+            <textarea class="small-textarea bg-light" type="text" id="maxScore" placeholder="10"></textarea>
+            <br />
+            <label>Exemplar Response (optional):</label>
+            <br />
+            <textarea
+              class="large-textarea bg-light"
+              type="text"
+              id="exemplar"
+              placeholder="Write or paste an example of a perfect score to increase AI accuracy"></textarea>
+            <br />
+          </div>
+
+          <br />
           <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
             *Please fill out all the fields*
           </p>

@@ -12,7 +12,7 @@ const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 const errorMsg = document.getElementById("errorMsg");
 
-//typwriter animation setup
+//tyepwriter animation setup
 function typeWriter(txt) {
   var i = 0;
   var speed = 10;
@@ -43,15 +43,14 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `First, think of ${number.value} potential writing prompt(s) for a ${grade.value} grade ${
-    subject.value
-  } class. Consider the topic "${topic.value}" and specific skills to assess, such as ${skills.value}. 
+  const prompt = `First, think of ${number.value} potential writing prompt(s) for a ${grade.value} 
+  grade ${subject.value} class. Consider the topic "${topic.value}" and specific skills to assess, 
+  such as ${skills.value}. 
   ${writingTypeInput.value ? `Focus on the type of writing: ${writingTypeInput.value}.` : ""}
-  ${
-    toneInput.value ? ` Ensure the tone is ${toneInput.value}.` : ""
-  } Be sure to consider how to best connect the assessed skills to the topic. After you have brainstormed ideas, write the final ${
-    number.value
-  } writing prompt(s) that require students to write a ${length.value} and assess the mentioned skills.`;
+  ${toneInput.value ? ` Ensure the tone is ${toneInput.value}.` : ""} 
+  Be sure to consider how to best connect the assessed skills to the topic. After you have brainstormed ideas, 
+  write the final ${number.value} writing prompt(s) that require students 
+  to write a ${length.value} and assess the mentioned skills.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;

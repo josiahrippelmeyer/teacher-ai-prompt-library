@@ -4,8 +4,25 @@ const subject = document.getElementById("subject");
 const task = document.getElementById("task");
 const source = document.getElementById("source");
 const criteria = document.getElementById("criteria");
+const yesScore = document.getElementById("yesScore");
+const noScore = document.getElementById("noScore");
+const maxScore = document.getElementById("maxScore");
+const exemplar = document.getElementById("exemplar");
 const errorMsg = document.getElementById("errorMsg");
 const copyPromptButton = document.getElementById("copy-prompt-button");
+
+//Unhide score and exemplar inputs
+noScore.addEventListener("change", () => {
+  if (noScore.checked) {
+    maxScoreInput.classList.add("hidden");
+  }
+});
+
+yesScore.addEventListener("change", () => {
+  if (yesScore.checked) {
+    maxScoreInput.classList.remove("hidden");
+  }
+});
 
 //typewriter animation
 function typeWriter(txt) {
@@ -24,18 +41,39 @@ function typeWriter(txt) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  if (grade.value === "" || subject.value === "" || task.value === "" || criteria.value === "") {
+  // Check if all required fields are filled out
+
+  if (
+    grade.value === "" ||
+    subject.value === "" ||
+    task.value === "" ||
+    criteria.value === "" ||
+    (yesScore.checked && maxScore.value === "")
+  ) {
     errorMsg.classList.remove("hidden");
     return;
   }
 
   const criteriaList = criteria.value.split(";").join(", ");
 
+  let scoreDescription;
+  if (yesScore.checked) {
+    scoreDescription = ` After providing personalized feedback, score the response out of 
+    ${maxScore.value}.${
+      exemplar.value
+        ? `Here is an example of a ${maxScore.value} 
+    out of ${maxScore.value} to assist in your scoring: "${exemplar.value}".`
+        : ""
+    }`;
+  } else {
+    scoreDescription = "";
+  }
+
   const prompt = `I will be providing feedback on written responses from ${grade.value} grade ${
     subject.value
   } students. The task type is ${task.value}.${
     source.value ? ` The relevant source material is: "${source.value}."` : ""
-  } The feedback should focus on the following criteria: ${criteriaList}. From now on, every message you receive will be a student response that requires feedback according to the given criteria. Please provide specific and constructive feedback for each student response.`;
+  } The feedback should focus on the following criteria: ${criteriaList}.${scoreDescription} From now on, every message you receive will be a student response that requires feedback according to the given criteria. Please provide specific and constructive feedback for each student response.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
