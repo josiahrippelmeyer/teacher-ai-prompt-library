@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous" />
+    <!-- Prompt Library CSS -->
+    <link rel="stylesheet" href="../../assets/css/generator.css" />
+    <title>AI Prompts</title>
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="home-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AI Prompt Library</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#home-navbar"
+          aria-controls="home-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="home-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../library.html">Library</a>
+            </li>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Prompt Generator-->
+    <div class="background-box border border-dark border-3">
+      <div class="prompt-box">
+        <h1>Score Analysis</h1>
+        <!-- Explain Button -->
+        <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Example
+        </button>
+        <!-- Explanation Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="m-0">
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Score Analysis:</h4>
+                  <p class="p-3 bg-dark text-light m-0">
+                    Effortlessly analyze and gain insights from your assessment scores with this AI-powered data
+                    analysis tool! Tailored for teachers, this form allows you to generate a custom prompt to analyze
+                    data from assessments like standardized tests or summative assignments. Simply input your grade,
+                    subject, assessment type, maximum score, and your students' scores to obtain a comprehensive
+                    analysis, uncovering trends and providing actionable recommendations for improvement. Transform the
+                    way you approach data analysis and enhance the learning experience for your students with this
+                    intuitive tool!
+                  </p>
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Instructions:</h4>
+                  <div class="p-3">
+                    <ol>
+                      <li>Customize the prompt filling out the form</li>
+                      <li>Click "Generate Prompt"</li>
+                      <li>Wait for the unique prompt to generate</li>
+                      <li>Click "Copy Prompt"</li>
+                      <li>Paste the prompt into ChatGPT</li>
+                      <li>See the results!</li>
+                      <li>
+                        Type
+                        <span class="fw-bold text-success">"continue"</span>
+                        into the chat if the AI's answer ends before it is complete
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
+                <div class="bg-dark p-3 text-light">
+                  <p>
+                    Thank you for providing the data set. Let's analyze the data to extract some insights and trends:
+                  </p>
+                  <ol>
+                    <li>Mean: The mean score of the data set is 21.93.</li>
+                    <li>
+                      Median: The median score is 22, which means that half of the scores are below 22 and half are
+                      above 22.
+                    </li>
+                    <li>
+                      Range: The range of the data set is 25, which is the difference between the highest score (30) and
+                      the lowest score (5).
+                    </li>
+                    <li>
+                      Distribution: The scores are not normally distributed. There are a few high scores and a few low
+                      scores, but most of the scores are in the middle range.
+                    </li>
+                    <li>
+                      Outliers: There are two scores that are significantly lower than the rest of the data set: 5 and
+                      12. These scores may be considered outliers.
+                    </li>
+                    <li>
+                      Quartiles: The first quartile (Q1) is 19, the second quartile (Q2) is 22, and the third quartile
+                      (Q3) is 25. This means that 25% of the scores are below 19, 50% are below 22, and 75% are below
+                      25.
+                    </li>
+                  </ol>
+                  <p>Based on the analysis, here are some recommendations:</p>
+                  <ol>
+                    <li>Focus on improving the scores of students who scored lower than the mean score of 21.93.</li>
+                    <li>
+                      Identify the students who scored significantly lower than the rest of the data set and provide
+                      them with additional support and resources.
+                    </li>
+                    <li>
+                      Use the quartiles to group students and provide targeted instruction and resources to help them
+                      improve their scores.
+                    </li>
+                    <li>
+                      Encourage students who scored higher than the mean score to continue to challenge themselves and
+                      strive for even higher scores.
+                    </li>
+                    <li>
+                      Use the data to evaluate the effectiveness of the ACT Prep Pre-ACT Science program and make
+                      necessary adjustments to improve student performance.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Prompt Form -->
+        <form id="data-analysis-form">
+          <label>
+            Grade:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="7th"></textarea>
+          <br />
+          <label>
+            Subject:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="ACT Prep"></textarea>
+          <br />
+          <label>
+            Assessment or Assignment:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea
+            class="small-textarea bg-light"
+            type="text"
+            id="assessmentType"
+            placeholder="Pre-ACT Science Test"></textarea>
+          <label>
+            Max Score:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="maxScore" placeholder="30"></textarea>
+          <br />
+          <label>
+            Scores (works best copied/pasted from spreadsheet column):
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="dataPoints"
+            placeholder="Enter your score set..."></textarea>
+          <br />
+          <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
+            *Please fill out all the fields*
+          </p>
+          <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+          <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>
+        </form>
+
+        <div>
+          <p id="aiPrompt"></p>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <!-- Prompt Library JS -->
+    <script src="dataanalysis.js"></script>
+  </body>
+</html>
