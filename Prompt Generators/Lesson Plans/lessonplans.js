@@ -12,7 +12,7 @@ const copyPromptButton = document.getElementById("copy-prompt-button");
 //typewriter animation
 function typeWriter(txt) {
   var i = 0;
-  var speed = 10;
+  var speed = 5;
   function type() {
     if (i < txt.length) {
       document.getElementById("aiPrompt").innerHTML += txt.charAt(i);

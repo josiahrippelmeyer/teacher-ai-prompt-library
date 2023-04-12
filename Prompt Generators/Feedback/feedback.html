@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous" />
+    <!-- Prompt Library CSS -->
+    <link rel="stylesheet" href="../../assets/css/generator.css" />
+    <title>AI Prompts</title>
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="home-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">AI Prompt Library</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#home-navbar"
+          aria-controls="home-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="home-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../library.html">Library</a>
+            </li>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Prompt Generator-->
+    <div class="background-box border border-dark border-3">
+      <div class="prompt-box">
+        <h1>Written Response Feedback Generator</h1>
+        <!-- Explain Button -->
+        <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Example
+        </button>
+        <!-- Explanation Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="m-0">
+                  <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">
+                    Written Response Feedback Generator:
+                  </h4>
+                  <p class="p-3 bg-dark text-light m-0 text-center">
+                    Create a personalized AI prompt to obtain insightful feedback on your students' written responses!
+                    This form enables you to generate a prompt tailored to your grade, subject, and task preferences,
+                    focusing on specific criteria you deem important. Seamlessly engage with ChatGPT to receive specific
+                    and constructive feedback for each student response, making the evaluation process efficient and
+                    effective.
+                  </p>
+                  <h4 class="text-light fw-bold bg-success py-2 m-0">Instructions:</h4>
+                  <div class="p-3">
+                    <ol>
+                      <li>Customize the prompt filling out the form</li>
+                      <li>Click "Generate Prompt"</li>
+                      <li>Wait for the unique prompt to generate</li>
+                      <li>Click "Copy Prompt"</li>
+                      <li>Paste the prompt into ChatGPT</li>
+                      <li>See the results!</li>
+                      <li>
+                        Type
+                        <span class="fw-bold text-success">"continue"</span>
+                        into the chat if the AI's answer ends before it is complete
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
+                <div class="bg-dark p-3 text-light">
+                  <p>
+                    AI:
+                    <br />
+                    Understood. Please provide the first student response.
+                  </p>
+                  <p>
+                    Teacher:
+                    <br />
+                    "J.M. Barrie creates a moody mood with his description of the Jolly Roger. The author said the Jolly
+                    Roger 'law low in the water.' When he says it lay low, that makes me think of unhappy and a scary
+                    feeling. He also describes it as a 'rakish looking' object. Rakish means unpleasant and shady
+                    feeling."
+                  </p>
+                  <p>
+                    AI:
+                    <br />
+                    Good start! Your claim about the mood being moody is a bit general. Be more specific with your word
+                    choice. Use adjectives that accurately describe the mood, such as eerie, ominous, or foreboding.
+                    <br />
+                    <br />
+                    Additionally, your evidence is somewhat incomplete. You only provided one piece of evidence from the
+                    text, when there are several other descriptive phrases that help create the mood. Try to incorporate
+                    more evidence from the text to strengthen your argument.
+                    <br />
+                    <br />
+                    Finally, your reasoning needs to be more explicit in connecting your evidence to your claim. How
+                    does the phrase "lay low in the water" contribute to the eerie mood? What makes the Jolly Roger's
+                    rakish appearance unpleasant and shady? Make sure to explain the connections between your evidence
+                    and your claim clearly and logically. Keep up the good work!
+                  </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Prompt Form -->
+        <form id="feedback-form">
+          <label>
+            Grade:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="6th"></textarea>
+          <br />
+          <label>
+            Subject:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="English"></textarea>
+          <br />
+          <label>
+            Task, Project, or Prompt:
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="task"
+            placeholder="Using claim evidence reasoning, describe the mood that J.M. Barrie creates when introducing the Jolly Roger at the beginning of chapter 14 in Peter Pan."></textarea>
+          <br />
+          <label>Relevant source material (optional):</label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="source"
+            placeholder="One green light squinting over Kidd’s Creek, which is near the mouth of the pirate river, marked where the brig, the Jolly Roger, lay, low in the water; a rakish-looking craft foul to the hull, every beam in her detestable, like ground strewn with mangled feathers. She was the cannibal of the seas, and scarce needed that watchful eye, for she floated immune in the horror of her name. She was wrapped in the blanket of night, through which no sound from her could have reached the shore."></textarea>
+          <br />
+          <label>
+            Feedback Criteria (separate with semicolons):
+            <span class="text-danger">*</span>
+          </label>
+          <br />
+          <textarea
+            class="large-textarea bg-light"
+            type="text"
+            id="criteria"
+            placeholder="Strong claim; text-based evidence; clear reasoning that ties evidence to claim"></textarea>
+          <br />
+          <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
+            *Please fill out all the fields*
+          </p>
+          <button class="hover active" type="submit" id="generate-prompt-button">Generate Prompt</button>
+          <button type="button" id="copy-prompt-button" class="copy-disabled" disabled>Copy Prompt</button>
+        </form>
+        <div>
+          <p id="aiPrompt"></p>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+    <!-- Prompt Library JS -->
+    <script src="feedback.js"></script>
+  </body>
+</html>

@@ -45,9 +45,9 @@ function handleSubmit(event) {
   // Generate the prompt
   const prompt = `First, think of ${number.value} potential writing prompt(s) for a ${grade.value} grade ${
     subject.value
-  } class. Consider the topic "${topic.value}" and specific skills to assess, such as ${skills.value}. ${
-    writingTypeInput.value ? `Focus on the type of writing: ${writingTypeInput.value}.` : ""
-  }${
+  } class. Consider the topic "${topic.value}" and specific skills to assess, such as ${skills.value}. 
+  ${writingTypeInput.value ? `Focus on the type of writing: ${writingTypeInput.value}.` : ""}
+  ${
     toneInput.value ? ` Ensure the tone is ${toneInput.value}.` : ""
   } Be sure to consider how to best connect the assessed skills to the topic. After you have brainstormed ideas, write the final ${
     number.value
