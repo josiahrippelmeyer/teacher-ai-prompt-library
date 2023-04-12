@@ -55,7 +55,7 @@
     <!-- Prompt Generator-->
     <div class="background-box border border-dark border-3">
       <div class="prompt-box">
-        <h1>Simply Complex Topics</h1>
+        <h1>Simplify Complex Topics</h1>
         <!-- Explain Button -->
         <button type="button" class="exp-btn enabled hover" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Example
@@ -98,25 +98,36 @@
                 <h4 class="text-light fw-bold bg-success py-2 m-0 text-center">Example AI Result:</h4>
                 <div class="bg-dark p-3 text-light">
                   <p>
-                    Sure, here are three questions of medium difficulty on the topic of ratios for 7th grade students:
+                    Sure, I can help you simplify the topic of quantum mechanics for your 8th grade physics class! Here
+                    are some explanations for wave-particle duality, superposition, and entanglement using simple
+                    analogies:
                   </p>
                   <ol>
                     <li>
-                      A recipe calls for a ratio of 2 cups of flour to 3 cups of sugar. If you want to make half of the
-                      recipe, how many cups of sugar do you need? Answer: 1.5 cups of sugar.
+                      Wave-Particle Duality: Wave-particle duality is the idea that particles, like electrons and
+                      photons, can behave like waves and particles at the same time. Imagine you're at a baseball game
+                      and a player hits a home run. You see the ball fly through the air like a particle, but then it
+                      also creates waves as it travels through the air. Similarly, electrons can act like particles or
+                      waves, depending on how you observe them.
                     </li>
                     <li>
-                      A school has a ratio of 5 teachers to 150 students. If the school has a total of 30 teachers, how
-                      many students are there in the school? Answer: There are 900 students in the school.
+                      Superposition: Superposition is the idea that particles can exist in multiple states at the same
+                      time. This might sound strange, but think of it like a traffic light. When the light is green, the
+                      car can go forward, but it can also turn left or right if it wants to. The car is in a
+                      superposition of different states, and it's not until we observe it that we know which state it's
+                      in.
                     </li>
                     <li>
-                      The ratio of the number of boys to the number of girls in a class is 2:3. If there are 24 boys in
-                      the class, how many students are there in the class? Answer: There are 40 students in the class.
+                      Entanglement: Entanglement is when two particles are connected in a way that their properties are
+                      linked, even when they're far apart. Imagine you have two spinning tops that are connected by a
+                      string. When you spin one top, the other one will start spinning too, no matter how far apart they
+                      are. In the same way, two entangled particles can influence each other's behavior, even if they're
+                      separated by great distances.
                     </li>
                   </ol>
                   <p>
-                    Note: For each question, make sure to provide space for students to show their work and justify
-                    their answers.
+                    I hope these analogies help your students understand these complex ideas in a simpler way! Let me
+                    know if you have any other questions.
                   </p>
                 </div>
               </div>
@@ -136,11 +147,11 @@
           <textarea class="large-textarea bg-light" type="text" id="topic" placeholder="Quantum mechanics"></textarea>
           <br />
           <label>
-            Target Grade Level or Age Group:
+            Target Grade Level:
             <span class="text-danger">*</span>
           </label>
           <br />
-          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="8th grade"></textarea>
+          <textarea class="small-textarea bg-light" type="text" id="grade" placeholder="8th"></textarea>
           <br />
           <label>
             Subject Area:
@@ -149,7 +160,7 @@
           <br />
           <textarea class="small-textarea bg-light" type="text" id="subject" placeholder="Physics"></textarea>
           <br />
-          <label>Specific Points or Concepts (separated by semicolon):</label>
+          <label>Specific Points or Concepts (separated by semicolon & Optional):</label>
           <br />
           <textarea
             class="large-textarea bg-light"
@@ -162,7 +173,38 @@
             <span class="text-danger">*</span>
           </label>
           <br />
-          <textarea class="small-textarea bg-light" type="text" id="format" placeholder="Bullet points"></textarea>
+          <!-- Desired Format Custom CSS Radio -->
+          <div class="choice-box bg-light">
+            <label class="custom-check" for="bullets">
+              Bulleted List
+              <input class="old-check" type="radio" name="format" id="bullets" value="bullets" />
+              <span class="radio"></span>
+            </label>
+            <br />
+            <label class="custom-check" for="paragraph">
+              Paragraph
+              <input class="old-check" type="radio" name="format" id="paragraph" value="paragraph" />
+              <span class="radio"></span>
+            </label>
+            <br />
+            <label class="custom-check" for="chart">
+              Chart/Graphic Organizer
+              <input class="old-check" type="radio" name="format" id="chart" value="chart" />
+              <span class="radio"></span>
+            </label>
+            <br />
+            <label class="custom-check" for="analogy">
+              Analogy
+              <input class="old-check" type="radio" name="format" id="analogy" value="analogy" />
+              <span class="radio"></span>
+            </label>
+            <br />
+            <label class="custom-check" for="limerick">
+              Limerick
+              <input class="old-check" type="radio" name="format" id="limerick" value="limerick" />
+              <span class="radio"></span>
+            </label>
+          </div>
           <br />
           <p class="hidden error-msg bg-danger border border-1 border-dark" id="errorMsg">
             *Please fill out all the required fields*
