@@ -27,7 +27,7 @@ h1 {
 .home-box {
   background: #d9d9d9;
   width: 50%;
-  min-width: 365px;
+  min-width: 300px;
   margin: 30px auto;
   padding-top: 30px;
   padding-bottom: 15px;
@@ -66,6 +66,14 @@ h1 {
   background: none;
   border: none;
   margin-top: 10%;
+}
+
+.home-btn {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 10px #404040;
+  margin: 0px 20px;
 }
 
 .gen-btn {
