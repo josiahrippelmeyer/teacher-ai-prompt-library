@@ -8,22 +8,32 @@ const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
 // Typewriter animation set up
+let timerId;
+
 function typeWriter(txt) {
   let i = 0;
-  const speed = 5;
+  const speed = 10;
+
+  // Clear the prompt and any ongoing animation
+  promptDisplay.innerHTML = "";
+
   function type() {
     if (i < txt.length) {
       promptDisplay.innerHTML += txt.charAt(i);
       i++;
-      setTimeout(type, speed);
+      timerId = setTimeout(type, speed);
+    } else {
+      clearTimeout(timerId);
     }
   }
   type();
-  clearTimeout(type);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
+
+  // Stop any ongoing typing animation before starting a new one
+  clearTimeout(timerId);
 
   // Check if all required fields are filled out and reveal error message if not
   if (form.value === "" || title.value === "" || author.value === "" || paste.value === "" || length.value === "") {

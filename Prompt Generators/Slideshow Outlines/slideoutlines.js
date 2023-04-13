@@ -17,15 +17,23 @@ const visualAid3 = document.getElementById("visualAid3");
 const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-//typwriter animation setup
+// Typewriter animation set up
+let timerId;
+
 function typeWriter(txt) {
-  var i = 0;
-  var speed = 10;
+  let i = 0;
+  const speed = 10;
+
+  // Clear the prompt and any ongoing animation
+  promptDisplay.innerHTML = "";
+
   function type() {
     if (i < txt.length) {
-      document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+      promptDisplay.innerHTML += txt.charAt(i);
       i++;
-      setTimeout(type, speed);
+      timerId = setTimeout(type, speed);
+    } else {
+      clearTimeout(timerId);
     }
   }
   type();
@@ -72,6 +80,10 @@ function generatePrompt() {
 // Check if all required fields are filled out and show error message if not
 function handleSubmit(event) {
   event.preventDefault();
+
+  // Stop any ongoing typing animation before starting a new one
+  clearTimeout(timerId);
+
   if (
     length.value === "" ||
     topic.value === "" ||

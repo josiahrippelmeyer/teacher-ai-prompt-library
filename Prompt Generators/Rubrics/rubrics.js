@@ -9,6 +9,7 @@ const copyPromptButton = document.getElementById("copy-prompt-button");
 const aiCriteria = document.getElementById("aiCriteria");
 const userCriteria = document.getElementById("userCriteria");
 const criteriaInput = document.getElementById("criteriaInput");
+const promptDisplay = document.getElementById("aiPrompt");
 
 //Unhide criteria input
 aiCriteria.addEventListener("change", () => {
@@ -23,15 +24,23 @@ userCriteria.addEventListener("change", () => {
   }
 });
 
-//typewriter animation
+// Typewriter animation set up
+let timerId;
+
 function typeWriter(txt) {
-  var i = 0;
-  var speed = 10;
+  let i = 0;
+  const speed = 10;
+
+  // Clear the prompt and any ongoing animation
+  promptDisplay.innerHTML = "";
+
   function type() {
     if (i < txt.length) {
-      document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+      promptDisplay.innerHTML += txt.charAt(i);
       i++;
-      setTimeout(type, speed);
+      timerId = setTimeout(type, speed);
+    } else {
+      clearTimeout(timerId);
     }
   }
   type();
@@ -39,6 +48,9 @@ function typeWriter(txt) {
 
 function handleSubmit(event) {
   event.preventDefault();
+
+  // Stop any ongoing typing animation before starting a new one
+  clearTimeout(timerId);
 
   // Check if all required fields are filled out
   if (

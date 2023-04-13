@@ -4,17 +4,26 @@ const theme = document.getElementById("theme");
 const length = document.getElementById("length");
 const requirements = document.getElementById("requirements");
 const errorMsg = document.getElementById("errorMsg");
+const promptDisplay = document.getElementById("aiPrompt");
 const copyPromptButton = document.getElementById("copy-prompt-button");
 
-//typewriter animation
+// Typewriter animation set up
+let timerId;
+
 function typeWriter(txt) {
-  var i = 0;
-  var speed = 10;
+  let i = 0;
+  const speed = 10;
+
+  // Clear the prompt and any ongoing animation
+  promptDisplay.innerHTML = "";
+
   function type() {
     if (i < txt.length) {
-      document.getElementById("aiPrompt").innerHTML += txt.charAt(i);
+      promptDisplay.innerHTML += txt.charAt(i);
       i++;
-      setTimeout(type, speed);
+      timerId = setTimeout(type, speed);
+    } else {
+      clearTimeout(timerId);
     }
   }
   type();
@@ -22,6 +31,9 @@ function typeWriter(txt) {
 
 function handleSubmit(event) {
   event.preventDefault();
+
+  // Stop any ongoing typing animation before starting a new one
+  clearTimeout(timerId);
 
   const contentType = document.querySelector('input[name="contentType"]:checked')?.value;
 
