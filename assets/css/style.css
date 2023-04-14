@@ -4,11 +4,31 @@ body {
 }
 
 #home {
-  background-image: url("../images/bookshelf background.avif");
+  background-image: url("../images/bookshelf background.jpg");
+  background-image: -webkit-image-set(
+    url("../images/bookshelf background.avif") 1x,
+    url("../images/bookshelf background.jpg") 1x
+  );
+  background-image: image-set(
+    url("../images/bookshelf background.avif") 1x,
+    url("../images/bookshelf background.jpg") 1x
+  );
 }
 
 section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/bookshelf background.avif");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/bookshelf background.jpg");
+  background-image: -webkit-image-set(
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/bookshelf background.avif") 1x,
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/bookshelf background.jpg") 1x
+  );
+  background-image: image-set(
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/bookshelf background.avif") 1x,
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../images/bookshelf background.jpg") 1x
+  );
 }
 
 h1 {
