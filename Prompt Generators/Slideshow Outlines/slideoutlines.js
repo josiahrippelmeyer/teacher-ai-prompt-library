@@ -67,7 +67,7 @@ function generatePrompt() {
   const prompt = `I am creating a presentation on ${topic.value} for an audience of ${audience.value}. The primary objective is ${objective.value}, and the secondary objectives include ${secondaryObjectives.value}. The presentation should be designed to fit within a time limit of ${length.value} minutes.\n\n${keyPoints}${evidenceText}${visualAids}. Please help me create a detailed, thoughtfully organized, and engaging slide outline for my presentation that effectively communicates my message to the audience. Additionally, suggest three creative and relevant titles for the presentation and include strategies that will ensure my audience stays engaged throughout the presentation.`;
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
-  copyPromptButton.classList.remove("disabled");
+  copyPromptButton.classList.remove("copy-disabled");
   copyPromptButton.classList.add("enabled");
   copyPromptButton.classList.add("hover");
   copyPromptButton.classList.add("active");

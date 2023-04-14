@@ -53,7 +53,7 @@ function handleSubmit(event) {
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;
-  copyPromptButton.classList.remove("disabled");
+  copyPromptButton.classList.remove("copy-disabled");
   copyPromptButton.classList.add("enabled");
   copyPromptButton.classList.add("hover");
   copyPromptButton.classList.add("active");
