@@ -121,6 +121,12 @@ h1 {
   font-size: 1rem;
 }
 
+@media (max-width: 768px) {
+  .gen-btn {
+    font-size: .8rem;
+  }
+}
+
 /* Book CSS */
 
 .book-container {
