@@ -71,7 +71,7 @@ function handleSubmit(event) {
   }
 
   // Generate the prompt
-  const prompt = `I need a rubric for a ${grade.value} grade ${subject.value} assignment on ${task.value}. The rubric should have ${performanceLevels.value} performance levels. ${criteriaDescription} Please describe each performance level for every criterion and provide a clear distinction between each level.`;
+  const prompt = `I need a rubric for a ${grade.value} grade ${subject.value} assignment on ${task.value}. The rubric should have ${performanceLevels.value} performance levels. ${criteriaDescription} Please describe each performance level for every criterion and provide a clear distinction between each level. Finally format your response in as a table.`;
 
   // Enable the copy prompt button and remove error message if necessary
   copyPromptButton.disabled = false;

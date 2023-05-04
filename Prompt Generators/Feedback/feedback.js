@@ -30,7 +30,7 @@ let timerId;
 
 function typeWriter(txt) {
   let i = 0;
-  const speed = 10;
+  const speed = 5;
 
   // Clear the prompt and any ongoing animation
   promptDisplay.innerHTML = "";

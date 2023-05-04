@@ -12,7 +12,7 @@ let timerId;
 
 function typeWriter(txt) {
   let i = 0;
-  const speed = 10;
+  const speed = 5;
 
   // Clear the prompt and any ongoing animation
   promptDisplay.innerHTML = "";
@@ -45,7 +45,7 @@ function handleSubmit(event) {
   const prompt = `I'd like a summary of the article "${title.value}" by ${author.value}. 
   Identify the main idea, critical supporting details, and other vital information. 
   Then, please create a ${length.value} long summary that succinctly covers that information. 
-  Here is the article:`;
+  Here is the article: `;
 
   // Enable the copy prompt button and hide error message
   copyPromptButton.disabled = false;
@@ -59,7 +59,7 @@ function handleSubmit(event) {
   typeWriter(prompt);
   setTimeout(() => {
     promptDisplay.innerHTML += paste.value;
-  }, 2500);
+  }, 3500);
 }
 
 promptDisplay.innerHTML += paste.value;
